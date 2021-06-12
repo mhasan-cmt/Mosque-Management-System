@@ -5,9 +5,11 @@
  */
 package main;
 
+import java.awt.Color;
 import java.text.SimpleDateFormat;
 import javax.swing.*;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -27,6 +29,7 @@ public class Home extends javax.swing.JFrame {
         jLabel13.setText(timeformat.format(Calendar.getInstance().getTime()));
         hideNav();
     }
+    
     //UI Codes
     void hideNav(){
         jLabel58.setVisible(false);
@@ -36,6 +39,7 @@ public class Home extends javax.swing.JFrame {
         jButton25.setVisible(false);
         jButton29.setVisible(false);
     }
+        
     void showNav(String title){
         jLabel58.setText(title);
         jLabel58.setVisible(true);
@@ -192,7 +196,9 @@ public class Home extends javax.swing.JFrame {
         jComboBox2 = new javax.swing.JComboBox<>();
         jButton28 = new javax.swing.JButton();
         comitteePanel = new javax.swing.JPanel();
+        jLabel12 = new javax.swing.JLabel();
         adminPanel = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
 
         menu1.setText("Test");
 
@@ -263,7 +269,7 @@ public class Home extends javax.swing.JFrame {
         jLabel47.setAlignmentX(931.0F);
         jLabel47.setAlignmentY(64.0F);
         topPanel.add(jLabel47);
-        jLabel47.setBounds(420, 0, 270, 50);
+        jLabel47.setBounds(420, 0, 270, 40);
 
         jLabel57.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel57.setForeground(new java.awt.Color(0, 0, 0));
@@ -310,11 +316,12 @@ public class Home extends javax.swing.JFrame {
         mainPanel.add(topPanel);
         topPanel.setBounds(120, 0, 1250, 120);
 
-        SidePanel.setBackground(new java.awt.Color(204, 204, 204));
+        SidePanel.setBackground(new java.awt.Color(0, 51, 102));
         SidePanel.setLayout(null);
 
         home.setLayout(null);
 
+        jLabel1.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Accounts");
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -330,6 +337,7 @@ public class Home extends javax.swing.JFrame {
 
         home1.setLayout(null);
 
+        jLabel16.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel16.setText("Home");
         jLabel16.addContainerListener(new java.awt.event.ContainerAdapter() {
@@ -341,6 +349,9 @@ public class Home extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel16MouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel16MouseEntered(evt);
+            }
         });
         home1.add(jLabel16);
         jLabel16.setBounds(0, 0, 100, 50);
@@ -350,6 +361,7 @@ public class Home extends javax.swing.JFrame {
 
         home2.setLayout(null);
 
+        jLabel3.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Members");
         jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -365,6 +377,7 @@ public class Home extends javax.swing.JFrame {
 
         home3.setLayout(null);
 
+        jLabel4.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Collections");
         jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -380,6 +393,7 @@ public class Home extends javax.swing.JFrame {
 
         home4.setLayout(null);
 
+        jLabel5.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Expenses");
         jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -395,6 +409,7 @@ public class Home extends javax.swing.JFrame {
 
         home5.setLayout(null);
 
+        jLabel6.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Donations");
         jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -410,6 +425,7 @@ public class Home extends javax.swing.JFrame {
 
         home6.setLayout(null);
 
+        jLabel7.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("Salary");
         jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -425,6 +441,7 @@ public class Home extends javax.swing.JFrame {
 
         home7.setLayout(null);
 
+        jLabel8.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("Comittee");
         jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -440,6 +457,7 @@ public class Home extends javax.swing.JFrame {
 
         home8.setLayout(null);
 
+        jLabel9.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("Admin");
         jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -455,18 +473,25 @@ public class Home extends javax.swing.JFrame {
 
         home9.setLayout(null);
 
+        jLabel10.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setText("Logout");
+        jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel10MouseClicked(evt);
+            }
+        });
         home9.add(jLabel10);
         jLabel10.setBounds(0, 0, 100, 50);
 
         SidePanel.add(home9);
         home9.setBounds(10, 610, 100, 50);
 
+        jPanel2.setBackground(new java.awt.Color(0, 51, 102));
         jPanel2.setLayout(null);
 
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setText("LOGO");
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/asset-1.png"))); // NOI18N
         jLabel11.addContainerListener(new java.awt.event.ContainerAdapter() {
             public void componentRemoved(java.awt.event.ContainerEvent evt) {
                 jLabel11ComponentRemoved(evt);
@@ -623,7 +648,7 @@ public class Home extends javax.swing.JFrame {
         jLabel26.setBounds(10, 40, 240, 40);
 
         homePanel.add(jPanel5);
-        jPanel5.setBounds(10, 120, 270, 90);
+        jPanel5.setBounds(10, 110, 270, 90);
 
         jPanel4.setLayout(null);
 
@@ -705,7 +730,7 @@ public class Home extends javax.swing.JFrame {
         jLabel42.setBounds(120, 40, 90, 40);
 
         homePanel.add(jPanel7);
-        jPanel7.setBounds(850, 10, 350, 200);
+        jPanel7.setBounds(850, 10, 350, 190);
 
         jPanel8.setLayout(null);
 
@@ -728,7 +753,7 @@ public class Home extends javax.swing.JFrame {
         jLabel34.setBounds(10, 30, 240, 40);
 
         homePanel.add(jPanel8);
-        jPanel8.setBounds(290, 120, 270, 90);
+        jPanel8.setBounds(290, 110, 270, 90);
 
         jPanel9.setLayout(null);
 
@@ -788,7 +813,7 @@ public class Home extends javax.swing.JFrame {
         jLabel44.setBounds(10, 40, 240, 40);
 
         homePanel.add(jPanel11);
-        jPanel11.setBounds(570, 120, 270, 90);
+        jPanel11.setBounds(570, 110, 270, 90);
 
         jPanel12.setLayout(null);
 
@@ -1111,7 +1136,7 @@ public class Home extends javax.swing.JFrame {
         expensesPanel.add(jButton19);
         jButton19.setBounds(640, 20, 110, 40);
 
-        jButton20.setText("ADD MEMBER");
+        jButton20.setText("ADD New");
         jButton20.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton20ActionPerformed(evt);
@@ -1221,6 +1246,11 @@ public class Home extends javax.swing.JFrame {
             }
         });
         comitteePanel.setLayout(null);
+
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/dark-landscape-with-bird-flying-1.png"))); // NOI18N
+        comitteePanel.add(jLabel12);
+        jLabel12.setBounds(0, 0, 1250, 650);
+
         Container.add(comitteePanel, "card2");
 
         adminPanel.setBackground(new java.awt.Color(255, 255, 255));
@@ -1230,6 +1260,11 @@ public class Home extends javax.swing.JFrame {
             }
         });
         adminPanel.setLayout(null);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/dark-landscape-with-bird-flying-1.png"))); // NOI18N
+        adminPanel.add(jLabel2);
+        jLabel2.setBounds(0, 0, 1250, 650);
+
         Container.add(adminPanel, "card2");
 
         mainPanel.add(Container);
@@ -1280,6 +1315,7 @@ public class Home extends javax.swing.JFrame {
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_jButton16ActionPerformed
 
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
@@ -1299,7 +1335,7 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        // TODO add your handling code here:
+        // actionform
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
@@ -1323,7 +1359,9 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+        // acttion form:
+        ActionPanel f= new ActionPanel();
+        f.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -1525,6 +1563,17 @@ public class Home extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton29ActionPerformed
 
+    private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
+        //Log Out:
+        this.dispose();
+    }//GEN-LAST:event_jLabel10MouseClicked
+
+    private void jLabel16MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseEntered
+        // TODO add your handling code here:
+         home1.setBackground(new Color(80, 166, 178));
+         jLabel16.setForeground(Color.WHITE);
+    }//GEN-LAST:event_jLabel16MouseEntered
+
     /**
      * @param args the command line arguments
      */
@@ -1618,10 +1667,12 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel23;
