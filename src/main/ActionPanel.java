@@ -5,6 +5,8 @@
  */
 package main;
 
+import java.text.SimpleDateFormat;
+
 /**
  *
  * @author Mahmudul Hasan
@@ -16,9 +18,30 @@ public class ActionPanel extends javax.swing.JFrame {
      */
     public ActionPanel() {
         initComponents();
+        if(Home.select==1){
+            Members.setVisible(true);
+            Collection.setVisible(false);
+            comSelector.setText("Members");
+        }else if(Home.select==2){
+            Members.setVisible(false);
+            Collection.setVisible(true);
+            comSelector.setText("Collections");
+        }
     }
+   
     String check=null;
-
+    SimpleDateFormat sm = new SimpleDateFormat("yyyy-MM-dd");//Formatting date for sql
+    //Members Section
+    String mid,mname,mmobile,maddress,mdate,mtype,mfee;
+    void getmData(){
+        mid=memberId.getText();
+        mname=memberName.getText();
+        mmobile=memberMobile.getText();
+        maddress=memberAddress.getText();
+        mtype=comMemberType.getSelectedItem().toString();
+        mfee=memberFee.getText();
+        mdate=sm.format(memberDate.getDate());
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -28,6 +51,8 @@ public class ActionPanel extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel73 = new javax.swing.JLabel();
+        jButton38 = new javax.swing.JButton();
         topPanel = new javax.swing.JPanel();
         jButton29 = new javax.swing.JButton();
         jButton25 = new javax.swing.JButton();
@@ -35,27 +60,124 @@ public class ActionPanel extends javax.swing.JFrame {
         jButton23 = new javax.swing.JButton();
         jButton30 = new javax.swing.JButton();
         jComboBox7 = new javax.swing.JComboBox<>();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        comSelector = new javax.swing.JLabel();
         container = new javax.swing.JLayeredPane();
+        Collection = new javax.swing.JPanel();
+        memberName1 = new javax.swing.JTextField();
+        collectionId = new javax.swing.JTextField();
+        jLabel66 = new javax.swing.JLabel();
+        memberMobile1 = new javax.swing.JTextField();
+        jLabel67 = new javax.swing.JLabel();
+        jLabel68 = new javax.swing.JLabel();
+        jLabel70 = new javax.swing.JLabel();
+        jLabel71 = new javax.swing.JLabel();
+        jButton34 = new javax.swing.JButton();
+        jButton35 = new javax.swing.JButton();
+        jButton36 = new javax.swing.JButton();
+        comMemberType1 = new javax.swing.JComboBox<>();
+        memberDate1 = new com.toedter.calendar.JDateChooser();
+        jLabel72 = new javax.swing.JLabel();
+        comMemberType2 = new javax.swing.JComboBox<>();
+        comMemberType3 = new javax.swing.JComboBox<>();
+        comMemberType5 = new javax.swing.JComboBox<>();
+        jLabel82 = new javax.swing.JLabel();
         Members = new javax.swing.JPanel();
         jLabel58 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        memberName = new javax.swing.JTextField();
+        memberId = new javax.swing.JTextField();
         jLabel60 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        memberMobile = new javax.swing.JTextField();
         jLabel61 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
         jLabel62 = new javax.swing.JLabel();
         jLabel63 = new javax.swing.JLabel();
         jLabel64 = new javax.swing.JLabel();
         jLabel65 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
+        memberFee = new javax.swing.JTextField();
         jButton31 = new javax.swing.JButton();
         jButton32 = new javax.swing.JButton();
         jButton33 = new javax.swing.JButton();
-        jComboBox6 = new javax.swing.JComboBox<>();
+        comMemberType = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        memberAddress = new javax.swing.JTextArea();
+        memberDate = new com.toedter.calendar.JDateChooser();
+        jLabel59 = new javax.swing.JLabel();
+        jButton37 = new javax.swing.JButton();
+        Donations = new javax.swing.JPanel();
+        memberName2 = new javax.swing.JTextField();
+        donationid = new javax.swing.JTextField();
+        jLabel75 = new javax.swing.JLabel();
+        memberMobile2 = new javax.swing.JTextField();
+        jLabel76 = new javax.swing.JLabel();
+        jLabel77 = new javax.swing.JLabel();
+        jLabel79 = new javax.swing.JLabel();
+        jLabel80 = new javax.swing.JLabel();
+        jButton39 = new javax.swing.JButton();
+        jButton41 = new javax.swing.JButton();
+        comMemberType4 = new javax.swing.JComboBox<>();
+        jLabel81 = new javax.swing.JLabel();
+        jButton42 = new javax.swing.JButton();
+        memberMobile3 = new javax.swing.JTextField();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jLabel83 = new javax.swing.JLabel();
+        comMemberType6 = new javax.swing.JComboBox<>();
+        jLabel84 = new javax.swing.JLabel();
+        memberMobile4 = new javax.swing.JTextField();
+        Expenses = new javax.swing.JPanel();
+        memberName3 = new javax.swing.JTextField();
+        exid = new javax.swing.JTextField();
+        expenseid = new javax.swing.JLabel();
+        jLabel85 = new javax.swing.JLabel();
+        jLabel87 = new javax.swing.JLabel();
+        jLabel88 = new javax.swing.JLabel();
+        jButton40 = new javax.swing.JButton();
+        jButton43 = new javax.swing.JButton();
+        comMemberType7 = new javax.swing.JComboBox<>();
+        jLabel89 = new javax.swing.JLabel();
+        jButton44 = new javax.swing.JButton();
+        memberMobile6 = new javax.swing.JTextField();
+        jDateChooser2 = new com.toedter.calendar.JDateChooser();
+        jLabel90 = new javax.swing.JLabel();
+        comMemberType8 = new javax.swing.JComboBox<>();
+        jLabel92 = new javax.swing.JLabel();
+        jLabel69 = new javax.swing.JLabel();
+        jButton45 = new javax.swing.JButton();
+        jButton46 = new javax.swing.JButton();
+        jButton47 = new javax.swing.JButton();
+        Employee = new javax.swing.JPanel();
+        memberName4 = new javax.swing.JTextField();
+        employeeid = new javax.swing.JTextField();
+        expenseid1 = new javax.swing.JLabel();
+        jLabel86 = new javax.swing.JLabel();
+        jLabel91 = new javax.swing.JLabel();
+        jLabel93 = new javax.swing.JLabel();
+        jButton48 = new javax.swing.JButton();
+        jButton49 = new javax.swing.JButton();
+        jButton50 = new javax.swing.JButton();
+        memberMobile7 = new javax.swing.JTextField();
+        jDateChooser3 = new com.toedter.calendar.JDateChooser();
+        jLabel96 = new javax.swing.JLabel();
+        jLabel74 = new javax.swing.JLabel();
+        jButton51 = new javax.swing.JButton();
+        jButton52 = new javax.swing.JButton();
+        jButton53 = new javax.swing.JButton();
+        jLabel97 = new javax.swing.JLabel();
+        memberMobile8 = new javax.swing.JTextField();
+        memberMobile9 = new javax.swing.JTextField();
+
+        jLabel73.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel73.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel73.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel73.setText("Picture");
+        jLabel73.setAlignmentX(931.0F);
+        jLabel73.setAlignmentY(64.0F);
+        jLabel73.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 5));
+
+        jButton38.setText("Upload");
+        jButton38.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton38ActionPerformed(evt);
+            }
+        });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -73,6 +195,11 @@ public class ActionPanel extends javax.swing.JFrame {
         jButton29.setBounds(820, 0, 80, 40);
 
         jButton25.setText("FIRST");
+        jButton25.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton25ActionPerformed(evt);
+            }
+        });
         topPanel.add(jButton25);
         jButton25.setBounds(450, 50, 70, 30);
 
@@ -96,12 +223,151 @@ public class ActionPanel extends javax.swing.JFrame {
         topPanel.add(jComboBox7);
         jComboBox7.setBounds(160, 50, 280, 30);
 
-        jComboBox1.setFont(new java.awt.Font("Roboto Black", 0, 18)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Members" }));
-        topPanel.add(jComboBox1);
-        jComboBox1.setBounds(9, 50, 150, 30);
+        comSelector.setFont(new java.awt.Font("Roboto Light", 1, 18)); // NOI18N
+        comSelector.setForeground(new java.awt.Color(0, 0, 0));
+        comSelector.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        comSelector.setText("Members");
+        comSelector.setAlignmentX(931.0F);
+        comSelector.setAlignmentY(64.0F);
+        topPanel.add(comSelector);
+        comSelector.setBounds(0, 50, 150, 30);
 
         container.setLayout(new java.awt.CardLayout());
+
+        Collection.setBackground(new java.awt.Color(0, 51, 102));
+        Collection.setLayout(null);
+
+        memberName1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Collection.add(memberName1);
+        memberName1.setBounds(260, 40, 640, 30);
+
+        collectionId.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Collection.add(collectionId);
+        collectionId.setBounds(70, 0, 130, 30);
+
+        jLabel66.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel66.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel66.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel66.setText("Id:");
+        jLabel66.setAlignmentX(931.0F);
+        jLabel66.setAlignmentY(64.0F);
+        Collection.add(jLabel66);
+        jLabel66.setBounds(0, 0, 60, 30);
+
+        memberMobile1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        memberMobile1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                memberMobile1ActionPerformed(evt);
+            }
+        });
+        Collection.add(memberMobile1);
+        memberMobile1.setBounds(260, 150, 290, 30);
+
+        jLabel67.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel67.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel67.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel67.setText("Amount:");
+        jLabel67.setAlignmentX(931.0F);
+        jLabel67.setAlignmentY(64.0F);
+        Collection.add(jLabel67);
+        jLabel67.setBounds(110, 150, 150, 30);
+
+        jLabel68.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel68.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel68.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel68.setText("Date:");
+        jLabel68.setAlignmentX(931.0F);
+        jLabel68.setAlignmentY(64.0F);
+        Collection.add(jLabel68);
+        jLabel68.setBounds(110, 190, 150, 30);
+
+        jLabel70.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel70.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel70.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel70.setText("Type:");
+        jLabel70.setAlignmentX(931.0F);
+        jLabel70.setAlignmentY(64.0F);
+        Collection.add(jLabel70);
+        jLabel70.setBounds(120, 110, 140, 30);
+
+        jLabel71.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel71.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel71.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel71.setText("Collected by:");
+        jLabel71.setAlignmentX(931.0F);
+        jLabel71.setAlignmentY(64.0F);
+        Collection.add(jLabel71);
+        jLabel71.setBounds(560, 150, 340, 40);
+
+        jButton34.setText("ADD");
+        jButton34.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton34ActionPerformed(evt);
+            }
+        });
+        Collection.add(jButton34);
+        jButton34.setBounds(620, 250, 70, 30);
+
+        jButton35.setText("EDIT");
+        jButton35.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton35ActionPerformed(evt);
+            }
+        });
+        Collection.add(jButton35);
+        jButton35.setBounds(700, 250, 80, 30);
+
+        jButton36.setText("DELETE");
+        jButton36.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton36ActionPerformed(evt);
+            }
+        });
+        Collection.add(jButton36);
+        jButton36.setBounds(790, 250, 80, 30);
+
+        comMemberType1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Monthly", "Yearly" }));
+        Collection.add(comMemberType1);
+        comMemberType1.setBounds(260, 70, 640, 30);
+        Collection.add(memberDate1);
+        memberDate1.setBounds(260, 190, 290, 30);
+
+        jLabel72.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel72.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel72.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel72.setText("Member Name:");
+        jLabel72.setAlignmentX(931.0F);
+        jLabel72.setAlignmentY(64.0F);
+        Collection.add(jLabel72);
+        jLabel72.setBounds(110, 40, 150, 30);
+
+        comMemberType2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Monthly", "Yearly" }));
+        comMemberType2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comMemberType2ActionPerformed(evt);
+            }
+        });
+        Collection.add(comMemberType2);
+        comMemberType2.setBounds(560, 190, 340, 30);
+
+        comMemberType3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Monthly", "Yearly" }));
+        Collection.add(comMemberType3);
+        comMemberType3.setBounds(260, 110, 290, 30);
+
+        comMemberType5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Monthly", "Yearly" }));
+        Collection.add(comMemberType5);
+        comMemberType5.setBounds(670, 110, 230, 30);
+
+        jLabel82.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel82.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel82.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel82.setText("Payment :");
+        jLabel82.setAlignmentX(931.0F);
+        jLabel82.setAlignmentY(64.0F);
+        Collection.add(jLabel82);
+        jLabel82.setBounds(550, 110, 120, 30);
+
+        container.add(Collection, "card2");
 
         Members.setBackground(new java.awt.Color(0, 51, 102));
         Members.setLayout(null);
@@ -109,19 +375,20 @@ public class ActionPanel extends javax.swing.JFrame {
         jLabel58.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel58.setForeground(new java.awt.Color(255, 255, 255));
         jLabel58.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel58.setText("Name:");
+        jLabel58.setText("Picture");
         jLabel58.setAlignmentX(931.0F);
         jLabel58.setAlignmentY(64.0F);
+        jLabel58.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 5));
         Members.add(jLabel58);
-        jLabel58.setBounds(110, 40, 150, 30);
+        jLabel58.setBounds(630, 0, 150, 150);
 
-        jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        Members.add(jTextField1);
-        jTextField1.setBounds(260, 40, 640, 30);
+        memberName.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Members.add(memberName);
+        memberName.setBounds(210, 40, 370, 30);
 
-        jTextField2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        Members.add(jTextField2);
-        jTextField2.setBounds(70, 0, 130, 30);
+        memberId.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Members.add(memberId);
+        memberId.setBounds(70, 0, 130, 30);
 
         jLabel60.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel60.setForeground(new java.awt.Color(255, 255, 255));
@@ -132,14 +399,14 @@ public class ActionPanel extends javax.swing.JFrame {
         Members.add(jLabel60);
         jLabel60.setBounds(0, 0, 60, 30);
 
-        jTextField3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        memberMobile.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        memberMobile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                memberMobileActionPerformed(evt);
             }
         });
-        Members.add(jTextField3);
-        jTextField3.setBounds(260, 80, 640, 30);
+        Members.add(memberMobile);
+        memberMobile.setBounds(210, 80, 370, 30);
 
         jLabel61.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel61.setForeground(new java.awt.Color(255, 255, 255));
@@ -148,11 +415,7 @@ public class ActionPanel extends javax.swing.JFrame {
         jLabel61.setAlignmentX(931.0F);
         jLabel61.setAlignmentY(64.0F);
         Members.add(jLabel61);
-        jLabel61.setBounds(110, 80, 150, 30);
-
-        jTextField5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        Members.add(jTextField5);
-        jTextField5.setBounds(620, 120, 280, 30);
+        jLabel61.setBounds(60, 80, 150, 30);
 
         jLabel62.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel62.setForeground(new java.awt.Color(255, 255, 255));
@@ -161,7 +424,7 @@ public class ActionPanel extends javax.swing.JFrame {
         jLabel62.setAlignmentX(931.0F);
         jLabel62.setAlignmentY(64.0F);
         Members.add(jLabel62);
-        jLabel62.setBounds(110, 120, 150, 30);
+        jLabel62.setBounds(60, 120, 150, 30);
 
         jLabel63.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel63.setForeground(new java.awt.Color(255, 255, 255));
@@ -170,7 +433,7 @@ public class ActionPanel extends javax.swing.JFrame {
         jLabel63.setAlignmentX(931.0F);
         jLabel63.setAlignmentY(64.0F);
         Members.add(jLabel63);
-        jLabel63.setBounds(510, 120, 110, 30);
+        jLabel63.setBounds(480, 160, 90, 30);
 
         jLabel64.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel64.setForeground(new java.awt.Color(255, 255, 255));
@@ -179,7 +442,7 @@ public class ActionPanel extends javax.swing.JFrame {
         jLabel64.setAlignmentX(931.0F);
         jLabel64.setAlignmentY(64.0F);
         Members.add(jLabel64);
-        jLabel64.setBounds(520, 160, 100, 30);
+        jLabel64.setBounds(480, 200, 90, 30);
 
         jLabel65.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel65.setForeground(new java.awt.Color(255, 255, 255));
@@ -188,16 +451,16 @@ public class ActionPanel extends javax.swing.JFrame {
         jLabel65.setAlignmentX(931.0F);
         jLabel65.setAlignmentY(64.0F);
         Members.add(jLabel65);
-        jLabel65.setBounds(160, 200, 100, 30);
+        jLabel65.setBounds(110, 200, 100, 30);
 
-        jTextField7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jTextField7.addActionListener(new java.awt.event.ActionListener() {
+        memberFee.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        memberFee.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField7ActionPerformed(evt);
+                memberFeeActionPerformed(evt);
             }
         });
-        Members.add(jTextField7);
-        jTextField7.setBounds(260, 200, 260, 30);
+        Members.add(memberFee);
+        memberFee.setBounds(210, 200, 260, 30);
 
         jButton31.setText("ADD");
         jButton31.addActionListener(new java.awt.event.ActionListener() {
@@ -206,16 +469,16 @@ public class ActionPanel extends javax.swing.JFrame {
             }
         });
         Members.add(jButton31);
-        jButton31.setBounds(620, 230, 70, 30);
+        jButton31.setBounds(620, 240, 70, 30);
 
-        jButton32.setText("EDIT");
+        jButton32.setText("Upload");
         jButton32.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton32ActionPerformed(evt);
             }
         });
         Members.add(jButton32);
-        jButton32.setBounds(700, 230, 80, 30);
+        jButton32.setBounds(790, 10, 110, 30);
 
         jButton33.setText("DELETE");
         jButton33.addActionListener(new java.awt.event.ActionListener() {
@@ -224,20 +487,513 @@ public class ActionPanel extends javax.swing.JFrame {
             }
         });
         Members.add(jButton33);
-        jButton33.setBounds(790, 230, 80, 30);
+        jButton33.setBounds(790, 240, 80, 30);
 
-        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Monthly", "Yearly" }));
-        Members.add(jComboBox6);
-        jComboBox6.setBounds(620, 160, 280, 30);
+        comMemberType.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        comMemberType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Monthly", "Yearly" }));
+        Members.add(comMemberType);
+        comMemberType.setBounds(570, 200, 280, 30);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        memberAddress.setColumns(20);
+        memberAddress.setRows(5);
+        jScrollPane1.setViewportView(memberAddress);
 
         Members.add(jScrollPane1);
-        jScrollPane1.setBounds(260, 120, 260, 70);
+        jScrollPane1.setBounds(210, 120, 260, 70);
+        Members.add(memberDate);
+        memberDate.setBounds(570, 160, 280, 30);
+
+        jLabel59.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel59.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel59.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel59.setText("Name:");
+        jLabel59.setAlignmentX(931.0F);
+        jLabel59.setAlignmentY(64.0F);
+        Members.add(jLabel59);
+        jLabel59.setBounds(60, 40, 150, 30);
+
+        jButton37.setText("EDIT");
+        jButton37.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton37ActionPerformed(evt);
+            }
+        });
+        Members.add(jButton37);
+        jButton37.setBounds(700, 240, 80, 30);
 
         container.add(Members, "card2");
+
+        Donations.setBackground(new java.awt.Color(0, 51, 102));
+        Donations.setLayout(null);
+
+        memberName2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Donations.add(memberName2);
+        memberName2.setBounds(210, 40, 660, 30);
+
+        donationid.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Donations.add(donationid);
+        donationid.setBounds(70, 0, 130, 30);
+
+        jLabel75.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel75.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel75.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel75.setText("Id:");
+        jLabel75.setAlignmentX(931.0F);
+        jLabel75.setAlignmentY(64.0F);
+        Donations.add(jLabel75);
+        jLabel75.setBounds(0, 0, 60, 30);
+
+        memberMobile2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        memberMobile2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                memberMobile2ActionPerformed(evt);
+            }
+        });
+        Donations.add(memberMobile2);
+        memberMobile2.setBounds(210, 150, 370, 30);
+
+        jLabel76.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel76.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel76.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel76.setText("Mobile Number:");
+        jLabel76.setAlignmentX(931.0F);
+        jLabel76.setAlignmentY(64.0F);
+        Donations.add(jLabel76);
+        jLabel76.setBounds(60, 80, 150, 30);
+
+        jLabel77.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel77.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel77.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel77.setText("Amount:");
+        jLabel77.setAlignmentX(931.0F);
+        jLabel77.setAlignmentY(64.0F);
+        Donations.add(jLabel77);
+        jLabel77.setBounds(70, 150, 140, 30);
+
+        jLabel79.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel79.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel79.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel79.setText("Payment Type:");
+        jLabel79.setAlignmentX(931.0F);
+        jLabel79.setAlignmentY(64.0F);
+        Donations.add(jLabel79);
+        jLabel79.setBounds(670, 150, 150, 30);
+
+        jLabel80.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel80.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel80.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel80.setText("Date:");
+        jLabel80.setAlignmentX(931.0F);
+        jLabel80.setAlignmentY(64.0F);
+        Donations.add(jLabel80);
+        jLabel80.setBounds(60, 190, 150, 30);
+
+        jButton39.setText("ADD");
+        jButton39.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton39ActionPerformed(evt);
+            }
+        });
+        Donations.add(jButton39);
+        jButton39.setBounds(620, 240, 70, 30);
+
+        jButton41.setText("DELETE");
+        jButton41.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton41ActionPerformed(evt);
+            }
+        });
+        Donations.add(jButton41);
+        jButton41.setBounds(790, 240, 80, 30);
+
+        comMemberType4.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        comMemberType4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Monthly", "Yearly" }));
+        Donations.add(comMemberType4);
+        comMemberType4.setBounds(590, 120, 310, 30);
+
+        jLabel81.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel81.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel81.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel81.setText("Donor Name:");
+        jLabel81.setAlignmentX(931.0F);
+        jLabel81.setAlignmentY(64.0F);
+        Donations.add(jLabel81);
+        jLabel81.setBounds(60, 40, 150, 30);
+
+        jButton42.setText("EDIT");
+        jButton42.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton42ActionPerformed(evt);
+            }
+        });
+        Donations.add(jButton42);
+        jButton42.setBounds(700, 240, 80, 30);
+
+        memberMobile3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        memberMobile3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                memberMobile3ActionPerformed(evt);
+            }
+        });
+        Donations.add(memberMobile3);
+        memberMobile3.setBounds(210, 80, 370, 30);
+        Donations.add(jDateChooser1);
+        jDateChooser1.setBounds(210, 190, 370, 30);
+
+        jLabel83.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel83.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel83.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel83.setText("Collected by:");
+        jLabel83.setAlignmentX(931.0F);
+        jLabel83.setAlignmentY(64.0F);
+        Donations.add(jLabel83);
+        jLabel83.setBounds(660, 80, 140, 30);
+
+        comMemberType6.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        comMemberType6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Monthly", "Yearly" }));
+        Donations.add(comMemberType6);
+        comMemberType6.setBounds(590, 190, 310, 30);
+
+        jLabel84.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel84.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel84.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel84.setText("Address:");
+        jLabel84.setAlignmentX(931.0F);
+        jLabel84.setAlignmentY(64.0F);
+        Donations.add(jLabel84);
+        jLabel84.setBounds(70, 120, 140, 30);
+
+        memberMobile4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        memberMobile4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                memberMobile4ActionPerformed(evt);
+            }
+        });
+        Donations.add(memberMobile4);
+        memberMobile4.setBounds(210, 120, 370, 30);
+
+        container.add(Donations, "card2");
+
+        Expenses.setBackground(new java.awt.Color(0, 51, 102));
+        Expenses.setLayout(null);
+
+        memberName3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Expenses.add(memberName3);
+        memberName3.setBounds(210, 40, 370, 30);
+
+        exid.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Expenses.add(exid);
+        exid.setBounds(70, 0, 130, 30);
+
+        expenseid.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        expenseid.setForeground(new java.awt.Color(255, 255, 255));
+        expenseid.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        expenseid.setText("Id:");
+        expenseid.setAlignmentX(931.0F);
+        expenseid.setAlignmentY(64.0F);
+        Expenses.add(expenseid);
+        expenseid.setBounds(0, 0, 60, 30);
+
+        jLabel85.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel85.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel85.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel85.setText("Amount:");
+        jLabel85.setAlignmentX(931.0F);
+        jLabel85.setAlignmentY(64.0F);
+        Expenses.add(jLabel85);
+        jLabel85.setBounds(60, 80, 150, 30);
+
+        jLabel87.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel87.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel87.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel87.setText("Payment Type:");
+        jLabel87.setAlignmentX(931.0F);
+        jLabel87.setAlignmentY(64.0F);
+        Expenses.add(jLabel87);
+        jLabel87.setBounds(60, 200, 150, 30);
+
+        jLabel88.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel88.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel88.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel88.setText("Date:");
+        jLabel88.setAlignmentX(931.0F);
+        jLabel88.setAlignmentY(64.0F);
+        Expenses.add(jLabel88);
+        jLabel88.setBounds(60, 120, 150, 30);
+
+        jButton40.setText("ADD");
+        jButton40.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton40ActionPerformed(evt);
+            }
+        });
+        Expenses.add(jButton40);
+        jButton40.setBounds(620, 240, 70, 30);
+
+        jButton43.setText("DELETE");
+        jButton43.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton43ActionPerformed(evt);
+            }
+        });
+        Expenses.add(jButton43);
+        jButton43.setBounds(790, 240, 80, 30);
+
+        comMemberType7.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        comMemberType7.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Monthly", "Yearly" }));
+        Expenses.add(comMemberType7);
+        comMemberType7.setBounds(210, 160, 370, 30);
+
+        jLabel89.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel89.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel89.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel89.setText("Voucer");
+        jLabel89.setAlignmentX(931.0F);
+        jLabel89.setAlignmentY(64.0F);
+        Expenses.add(jLabel89);
+        jLabel89.setBounds(600, 30, 140, 30);
+
+        jButton44.setText("EDIT");
+        jButton44.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton44ActionPerformed(evt);
+            }
+        });
+        Expenses.add(jButton44);
+        jButton44.setBounds(700, 240, 80, 30);
+
+        memberMobile6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        memberMobile6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                memberMobile6ActionPerformed(evt);
+            }
+        });
+        Expenses.add(memberMobile6);
+        memberMobile6.setBounds(210, 80, 370, 30);
+        Expenses.add(jDateChooser2);
+        jDateChooser2.setBounds(210, 120, 370, 30);
+
+        jLabel90.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel90.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel90.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel90.setText("Expense by:");
+        jLabel90.setAlignmentX(931.0F);
+        jLabel90.setAlignmentY(64.0F);
+        Expenses.add(jLabel90);
+        jLabel90.setBounds(70, 160, 140, 30);
+
+        comMemberType8.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        comMemberType8.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Monthly", "Yearly" }));
+        Expenses.add(comMemberType8);
+        comMemberType8.setBounds(210, 200, 370, 30);
+
+        jLabel92.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel92.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel92.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel92.setText("Expense Type:");
+        jLabel92.setAlignmentX(931.0F);
+        jLabel92.setAlignmentY(64.0F);
+        Expenses.add(jLabel92);
+        jLabel92.setBounds(60, 40, 150, 30);
+
+        jLabel69.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel69.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel69.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel69.setText("Picture");
+        jLabel69.setAlignmentX(931.0F);
+        jLabel69.setAlignmentY(64.0F);
+        jLabel69.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 5));
+        Expenses.add(jLabel69);
+        jLabel69.setBounds(600, 60, 140, 170);
+
+        jButton45.setText("Clear");
+        jButton45.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton45ActionPerformed(evt);
+            }
+        });
+        Expenses.add(jButton45);
+        jButton45.setBounds(750, 140, 90, 30);
+
+        jButton46.setText("Upload");
+        jButton46.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton46ActionPerformed(evt);
+            }
+        });
+        Expenses.add(jButton46);
+        jButton46.setBounds(750, 60, 90, 30);
+
+        jButton47.setText("View");
+        jButton47.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton47ActionPerformed(evt);
+            }
+        });
+        Expenses.add(jButton47);
+        jButton47.setBounds(750, 100, 90, 30);
+
+        container.add(Expenses, "card2");
+
+        Employee.setBackground(new java.awt.Color(0, 51, 102));
+        Employee.setLayout(null);
+
+        memberName4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Employee.add(memberName4);
+        memberName4.setBounds(210, 40, 370, 30);
+
+        employeeid.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Employee.add(employeeid);
+        employeeid.setBounds(70, 0, 130, 30);
+
+        expenseid1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        expenseid1.setForeground(new java.awt.Color(255, 255, 255));
+        expenseid1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        expenseid1.setText("Id:");
+        expenseid1.setAlignmentX(931.0F);
+        expenseid1.setAlignmentY(64.0F);
+        Employee.add(expenseid1);
+        expenseid1.setBounds(0, 0, 60, 30);
+
+        jLabel86.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel86.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel86.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel86.setText("Mobile Number:");
+        jLabel86.setAlignmentX(931.0F);
+        jLabel86.setAlignmentY(64.0F);
+        Employee.add(jLabel86);
+        jLabel86.setBounds(60, 80, 150, 30);
+
+        jLabel91.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel91.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel91.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel91.setText("Salary:");
+        jLabel91.setAlignmentX(931.0F);
+        jLabel91.setAlignmentY(64.0F);
+        Employee.add(jLabel91);
+        jLabel91.setBounds(60, 200, 150, 30);
+
+        jLabel93.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel93.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel93.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel93.setText("Joining Date::");
+        jLabel93.setAlignmentX(931.0F);
+        jLabel93.setAlignmentY(64.0F);
+        Employee.add(jLabel93);
+        jLabel93.setBounds(60, 160, 150, 30);
+
+        jButton48.setText("ADD");
+        jButton48.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton48ActionPerformed(evt);
+            }
+        });
+        Employee.add(jButton48);
+        jButton48.setBounds(620, 240, 70, 30);
+
+        jButton49.setText("DELETE");
+        jButton49.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton49ActionPerformed(evt);
+            }
+        });
+        Employee.add(jButton49);
+        jButton49.setBounds(790, 240, 80, 30);
+
+        jButton50.setText("EDIT");
+        jButton50.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton50ActionPerformed(evt);
+            }
+        });
+        Employee.add(jButton50);
+        jButton50.setBounds(700, 240, 80, 30);
+
+        memberMobile7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        memberMobile7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                memberMobile7ActionPerformed(evt);
+            }
+        });
+        Employee.add(memberMobile7);
+        memberMobile7.setBounds(210, 80, 370, 30);
+        Employee.add(jDateChooser3);
+        jDateChooser3.setBounds(210, 160, 370, 30);
+
+        jLabel96.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel96.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel96.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel96.setText("Name:");
+        jLabel96.setAlignmentX(931.0F);
+        jLabel96.setAlignmentY(64.0F);
+        Employee.add(jLabel96);
+        jLabel96.setBounds(60, 40, 150, 30);
+
+        jLabel74.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel74.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel74.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel74.setText("Picture");
+        jLabel74.setAlignmentX(931.0F);
+        jLabel74.setAlignmentY(64.0F);
+        jLabel74.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 5));
+        Employee.add(jLabel74);
+        jLabel74.setBounds(600, 40, 170, 170);
+
+        jButton51.setText("Clear");
+        jButton51.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton51ActionPerformed(evt);
+            }
+        });
+        Employee.add(jButton51);
+        jButton51.setBounds(780, 120, 90, 30);
+
+        jButton52.setText("Upload");
+        jButton52.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton52ActionPerformed(evt);
+            }
+        });
+        Employee.add(jButton52);
+        jButton52.setBounds(780, 40, 90, 30);
+
+        jButton53.setText("View");
+        jButton53.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton53ActionPerformed(evt);
+            }
+        });
+        Employee.add(jButton53);
+        jButton53.setBounds(780, 80, 90, 30);
+
+        jLabel97.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel97.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel97.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel97.setText("Address:");
+        jLabel97.setAlignmentX(931.0F);
+        jLabel97.setAlignmentY(64.0F);
+        Employee.add(jLabel97);
+        jLabel97.setBounds(60, 120, 150, 30);
+
+        memberMobile8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        memberMobile8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                memberMobile8ActionPerformed(evt);
+            }
+        });
+        Employee.add(memberMobile8);
+        memberMobile8.setBounds(210, 200, 370, 30);
+
+        memberMobile9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        memberMobile9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                memberMobile9ActionPerformed(evt);
+            }
+        });
+        Employee.add(memberMobile9);
+        memberMobile9.setBounds(210, 120, 370, 30);
+
+        container.add(Employee, "card2");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -272,23 +1028,150 @@ public class ActionPanel extends javax.swing.JFrame {
 
     private void jButton31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton31ActionPerformed
         // TODO add your handling code here:
+        if (comSelector.getText()=="Members") {
+            getmData();
+            new databaseConection().addData("INSERT INTO `members`(`name`"
+                    + ",`mobile`,`address`,`joindate`,`type`,`fee`) "
+                    + "VALUES('"+mname+"','"+mmobile+"','"+maddress+"',"
+                            + "'"+mdate+"','"+mtype+"','"+mfee+"')", this);
+        }
     }//GEN-LAST:event_jButton31ActionPerformed
 
     private void jButton32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton32ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton32ActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void memberMobileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_memberMobileActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_memberMobileActionPerformed
 
-    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
+    private void memberFeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_memberFeeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField7ActionPerformed
+    }//GEN-LAST:event_memberFeeActionPerformed
 
     private void jButton33ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton33ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton33ActionPerformed
+
+    private void memberMobile1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_memberMobile1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_memberMobile1ActionPerformed
+
+    private void jButton34ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton34ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton34ActionPerformed
+
+    private void jButton35ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton35ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton35ActionPerformed
+
+    private void jButton36ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton36ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton36ActionPerformed
+
+    private void jButton25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton25ActionPerformed
+      
+    }//GEN-LAST:event_jButton25ActionPerformed
+
+    private void jButton37ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton37ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton37ActionPerformed
+
+    private void jButton38ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton38ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton38ActionPerformed
+
+    private void jButton39ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton39ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton39ActionPerformed
+
+    private void jButton41ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton41ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton41ActionPerformed
+
+    private void jButton42ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton42ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton42ActionPerformed
+
+    private void comMemberType2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comMemberType2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comMemberType2ActionPerformed
+
+    private void memberMobile3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_memberMobile3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_memberMobile3ActionPerformed
+
+    private void memberMobile2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_memberMobile2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_memberMobile2ActionPerformed
+
+    private void memberMobile4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_memberMobile4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_memberMobile4ActionPerformed
+
+    private void jButton40ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton40ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton40ActionPerformed
+
+    private void jButton43ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton43ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton43ActionPerformed
+
+    private void jButton44ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton44ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton44ActionPerformed
+
+    private void memberMobile6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_memberMobile6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_memberMobile6ActionPerformed
+
+    private void jButton45ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton45ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton45ActionPerformed
+
+    private void jButton46ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton46ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton46ActionPerformed
+
+    private void jButton47ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton47ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton47ActionPerformed
+
+    private void jButton48ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton48ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton48ActionPerformed
+
+    private void jButton49ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton49ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton49ActionPerformed
+
+    private void jButton50ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton50ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton50ActionPerformed
+
+    private void memberMobile7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_memberMobile7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_memberMobile7ActionPerformed
+
+    private void jButton51ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton51ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton51ActionPerformed
+
+    private void jButton52ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton52ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton52ActionPerformed
+
+    private void jButton53ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton53ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton53ActionPerformed
+
+    private void memberMobile8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_memberMobile8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_memberMobile8ActionPerformed
+
+    private void memberMobile9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_memberMobile9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_memberMobile9ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -329,8 +1212,28 @@ public class ActionPanel extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JPanel Collection;
+    public javax.swing.JPanel Donations;
+    public javax.swing.JPanel Employee;
+    public javax.swing.JPanel Expenses;
     public javax.swing.JPanel Members;
+    private javax.swing.JTextField collectionId;
+    private javax.swing.JComboBox<String> comMemberType;
+    private javax.swing.JComboBox<String> comMemberType1;
+    private javax.swing.JComboBox<String> comMemberType2;
+    private javax.swing.JComboBox<String> comMemberType3;
+    private javax.swing.JComboBox<String> comMemberType4;
+    private javax.swing.JComboBox<String> comMemberType5;
+    private javax.swing.JComboBox<String> comMemberType6;
+    private javax.swing.JComboBox<String> comMemberType7;
+    private javax.swing.JComboBox<String> comMemberType8;
+    private javax.swing.JLabel comSelector;
     private javax.swing.JLayeredPane container;
+    private javax.swing.JTextField donationid;
+    private javax.swing.JTextField employeeid;
+    private javax.swing.JTextField exid;
+    private javax.swing.JLabel expenseid;
+    private javax.swing.JLabel expenseid1;
     private javax.swing.JButton jButton23;
     private javax.swing.JButton jButton24;
     private javax.swing.JButton jButton25;
@@ -339,23 +1242,87 @@ public class ActionPanel extends javax.swing.JFrame {
     private javax.swing.JButton jButton31;
     private javax.swing.JButton jButton32;
     private javax.swing.JButton jButton33;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox6;
+    private javax.swing.JButton jButton34;
+    private javax.swing.JButton jButton35;
+    private javax.swing.JButton jButton36;
+    private javax.swing.JButton jButton37;
+    private javax.swing.JButton jButton38;
+    private javax.swing.JButton jButton39;
+    private javax.swing.JButton jButton40;
+    private javax.swing.JButton jButton41;
+    private javax.swing.JButton jButton42;
+    private javax.swing.JButton jButton43;
+    private javax.swing.JButton jButton44;
+    private javax.swing.JButton jButton45;
+    private javax.swing.JButton jButton46;
+    private javax.swing.JButton jButton47;
+    private javax.swing.JButton jButton48;
+    private javax.swing.JButton jButton49;
+    private javax.swing.JButton jButton50;
+    private javax.swing.JButton jButton51;
+    private javax.swing.JButton jButton52;
+    private javax.swing.JButton jButton53;
     private javax.swing.JComboBox<String> jComboBox7;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
+    private com.toedter.calendar.JDateChooser jDateChooser2;
+    private com.toedter.calendar.JDateChooser jDateChooser3;
     private javax.swing.JLabel jLabel58;
+    private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel60;
     private javax.swing.JLabel jLabel61;
     private javax.swing.JLabel jLabel62;
     private javax.swing.JLabel jLabel63;
     private javax.swing.JLabel jLabel64;
     private javax.swing.JLabel jLabel65;
+    private javax.swing.JLabel jLabel66;
+    private javax.swing.JLabel jLabel67;
+    private javax.swing.JLabel jLabel68;
+    private javax.swing.JLabel jLabel69;
+    private javax.swing.JLabel jLabel70;
+    private javax.swing.JLabel jLabel71;
+    private javax.swing.JLabel jLabel72;
+    private javax.swing.JLabel jLabel73;
+    private javax.swing.JLabel jLabel74;
+    private javax.swing.JLabel jLabel75;
+    private javax.swing.JLabel jLabel76;
+    private javax.swing.JLabel jLabel77;
+    private javax.swing.JLabel jLabel79;
+    private javax.swing.JLabel jLabel80;
+    private javax.swing.JLabel jLabel81;
+    private javax.swing.JLabel jLabel82;
+    private javax.swing.JLabel jLabel83;
+    private javax.swing.JLabel jLabel84;
+    private javax.swing.JLabel jLabel85;
+    private javax.swing.JLabel jLabel86;
+    private javax.swing.JLabel jLabel87;
+    private javax.swing.JLabel jLabel88;
+    private javax.swing.JLabel jLabel89;
+    private javax.swing.JLabel jLabel90;
+    private javax.swing.JLabel jLabel91;
+    private javax.swing.JLabel jLabel92;
+    private javax.swing.JLabel jLabel93;
+    private javax.swing.JLabel jLabel96;
+    private javax.swing.JLabel jLabel97;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextArea memberAddress;
+    private com.toedter.calendar.JDateChooser memberDate;
+    private com.toedter.calendar.JDateChooser memberDate1;
+    private javax.swing.JTextField memberFee;
+    private javax.swing.JTextField memberId;
+    private javax.swing.JTextField memberMobile;
+    private javax.swing.JTextField memberMobile1;
+    private javax.swing.JTextField memberMobile2;
+    private javax.swing.JTextField memberMobile3;
+    private javax.swing.JTextField memberMobile4;
+    private javax.swing.JTextField memberMobile6;
+    private javax.swing.JTextField memberMobile7;
+    private javax.swing.JTextField memberMobile8;
+    private javax.swing.JTextField memberMobile9;
+    private javax.swing.JTextField memberName;
+    private javax.swing.JTextField memberName1;
+    private javax.swing.JTextField memberName2;
+    private javax.swing.JTextField memberName3;
+    private javax.swing.JTextField memberName4;
     private javax.swing.JPanel topPanel;
     // End of variables declaration//GEN-END:variables
 }

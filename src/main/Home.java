@@ -22,12 +22,14 @@ public class Home extends javax.swing.JFrame {
     /**
      * Creates new form Home
      */
+   static  int select=1;
     public Home() {
         initComponents();
         SimpleDateFormat timeformat=new SimpleDateFormat("EEE, MMM d, ''yyyy");
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         jLabel13.setText(timeformat.format(Calendar.getInstance().getTime()));
         hideNav();
+        new databaseConection().dbconnect();
     }
     
     //UI Codes
@@ -68,8 +70,8 @@ public class Home extends javax.swing.JFrame {
         topPanel = new javax.swing.JPanel();
         jPanel14 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
-        jLabel37 = new javax.swing.JLabel();
-        jLabel38 = new javax.swing.JLabel();
+        lbUser = new javax.swing.JLabel();
+        lbWelcome = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel47 = new javax.swing.JLabel();
         jLabel57 = new javax.swing.JLabel();
@@ -79,6 +81,7 @@ public class Home extends javax.swing.JFrame {
         jButton23 = new javax.swing.JButton();
         jLabel58 = new javax.swing.JLabel();
         jComboBox6 = new javax.swing.JComboBox<>();
+        jLabel48 = new javax.swing.JLabel();
         SidePanel = new javax.swing.JPanel();
         home = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -97,11 +100,19 @@ public class Home extends javax.swing.JFrame {
         home7 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         home8 = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
         home9 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel19 = new javax.swing.JLabel();
+        jPanel15 = new javax.swing.JPanel();
+        jLabel17 = new javax.swing.JLabel();
+        jPanel16 = new javax.swing.JPanel();
+        jLabel25 = new javax.swing.JLabel();
         Container = new javax.swing.JLayeredPane();
         homePanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -154,7 +165,6 @@ public class Home extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox<>();
         jButton6 = new javax.swing.JButton();
-        accountsPanel = new javax.swing.JPanel();
         collectionPanel = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
         jTable5 = new javax.swing.JTable();
@@ -235,23 +245,23 @@ public class Home extends javax.swing.JFrame {
         topPanel.add(jLabel14);
         jLabel14.setBounds(930, 70, 150, 30);
 
-        jLabel37.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel37.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel37.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel37.setText("Mahmudu Hasan Shafin");
-        jLabel37.setAlignmentX(931.0F);
-        jLabel37.setAlignmentY(64.0F);
-        topPanel.add(jLabel37);
-        jLabel37.setBounds(930, 40, 200, 30);
+        lbUser.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lbUser.setForeground(new java.awt.Color(0, 0, 0));
+        lbUser.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbUser.setText("Mahmudul Hasan Shafin");
+        lbUser.setAlignmentX(931.0F);
+        lbUser.setAlignmentY(64.0F);
+        topPanel.add(lbUser);
+        lbUser.setBounds(930, 40, 200, 30);
 
-        jLabel38.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel38.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel38.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel38.setText("Welcome");
-        jLabel38.setAlignmentX(931.0F);
-        jLabel38.setAlignmentY(64.0F);
-        topPanel.add(jLabel38);
-        jLabel38.setBounds(920, 0, 100, 50);
+        lbWelcome.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lbWelcome.setForeground(new java.awt.Color(0, 0, 0));
+        lbWelcome.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbWelcome.setText("Welcome");
+        lbWelcome.setAlignmentX(931.0F);
+        lbWelcome.setAlignmentY(64.0F);
+        topPanel.add(lbWelcome);
+        lbWelcome.setBounds(920, 0, 100, 50);
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(0, 0, 0));
@@ -265,11 +275,11 @@ public class Home extends javax.swing.JFrame {
         jLabel47.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel47.setForeground(new java.awt.Color(0, 0, 0));
         jLabel47.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel47.setText("Baitul Aman Jame Masjid, Feni");
+        jLabel47.setText("Mosque Mangement System");
         jLabel47.setAlignmentX(931.0F);
         jLabel47.setAlignmentY(64.0F);
         topPanel.add(jLabel47);
-        jLabel47.setBounds(420, 0, 270, 40);
+        jLabel47.setBounds(190, 0, 270, 40);
 
         jLabel57.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel57.setForeground(new java.awt.Color(0, 0, 0));
@@ -278,7 +288,7 @@ public class Home extends javax.swing.JFrame {
         jLabel57.setAlignmentX(931.0F);
         jLabel57.setAlignmentY(64.0F);
         topPanel.add(jLabel57);
-        jLabel57.setBounds(10, 0, 270, 40);
+        jLabel57.setBounds(0, 0, 150, 40);
 
         jButton29.setText("LAST");
         jButton29.addActionListener(new java.awt.event.ActionListener() {
@@ -313,28 +323,39 @@ public class Home extends javax.swing.JFrame {
         topPanel.add(jComboBox6);
         jComboBox6.setBounds(150, 90, 280, 30);
 
+        jLabel48.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel48.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel48.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel48.setText("Baitul Aman Jame Masjid, Feni");
+        jLabel48.setAlignmentX(931.0F);
+        jLabel48.setAlignmentY(64.0F);
+        topPanel.add(jLabel48);
+        jLabel48.setBounds(460, 0, 270, 40);
+
         mainPanel.add(topPanel);
         topPanel.setBounds(120, 0, 1250, 120);
 
         SidePanel.setBackground(new java.awt.Color(0, 51, 102));
         SidePanel.setLayout(null);
 
+        home.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         home.setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Accounts");
+        jLabel1.setText("Report");
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel1MouseClicked(evt);
             }
         });
         home.add(jLabel1);
-        jLabel1.setBounds(0, 0, 100, 50);
+        jLabel1.setBounds(0, 0, 120, 30);
 
         SidePanel.add(home);
-        home.setBounds(10, 130, 100, 50);
+        home.setBounds(0, 160, 120, 30);
 
+        home1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         home1.setLayout(null);
 
         jLabel16.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
@@ -352,13 +373,17 @@ public class Home extends javax.swing.JFrame {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jLabel16MouseEntered(evt);
             }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel16MouseExited(evt);
+            }
         });
         home1.add(jLabel16);
-        jLabel16.setBounds(0, 0, 100, 50);
+        jLabel16.setBounds(0, 0, 120, 30);
 
         SidePanel.add(home1);
-        home1.setBounds(10, 70, 100, 50);
+        home1.setBounds(0, 130, 120, 30);
 
+        home2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         home2.setLayout(null);
 
         jLabel3.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
@@ -370,11 +395,12 @@ public class Home extends javax.swing.JFrame {
             }
         });
         home2.add(jLabel3);
-        jLabel3.setBounds(0, 0, 100, 50);
+        jLabel3.setBounds(0, 0, 120, 30);
 
         SidePanel.add(home2);
-        home2.setBounds(10, 190, 100, 50);
+        home2.setBounds(0, 190, 120, 30);
 
+        home3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         home3.setLayout(null);
 
         jLabel4.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
@@ -386,11 +412,12 @@ public class Home extends javax.swing.JFrame {
             }
         });
         home3.add(jLabel4);
-        jLabel4.setBounds(0, 0, 100, 50);
+        jLabel4.setBounds(0, 0, 120, 30);
 
         SidePanel.add(home3);
-        home3.setBounds(10, 250, 100, 50);
+        home3.setBounds(0, 220, 120, 30);
 
+        home4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         home4.setLayout(null);
 
         jLabel5.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
@@ -402,11 +429,12 @@ public class Home extends javax.swing.JFrame {
             }
         });
         home4.add(jLabel5);
-        jLabel5.setBounds(0, 0, 100, 50);
+        jLabel5.setBounds(0, 0, 120, 30);
 
         SidePanel.add(home4);
-        home4.setBounds(10, 370, 100, 50);
+        home4.setBounds(0, 280, 120, 30);
 
+        home5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         home5.setLayout(null);
 
         jLabel6.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
@@ -418,11 +446,12 @@ public class Home extends javax.swing.JFrame {
             }
         });
         home5.add(jLabel6);
-        jLabel6.setBounds(0, 0, 100, 50);
+        jLabel6.setBounds(0, 0, 120, 30);
 
         SidePanel.add(home5);
-        home5.setBounds(10, 310, 100, 50);
+        home5.setBounds(0, 250, 120, 30);
 
+        home6.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         home6.setLayout(null);
 
         jLabel7.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
@@ -434,11 +463,12 @@ public class Home extends javax.swing.JFrame {
             }
         });
         home6.add(jLabel7);
-        jLabel7.setBounds(0, 0, 100, 50);
+        jLabel7.setBounds(0, 0, 120, 30);
 
         SidePanel.add(home6);
-        home6.setBounds(10, 430, 100, 50);
+        home6.setBounds(0, 310, 120, 30);
 
+        home7.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         home7.setLayout(null);
 
         jLabel8.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
@@ -450,26 +480,28 @@ public class Home extends javax.swing.JFrame {
             }
         });
         home7.add(jLabel8);
-        jLabel8.setBounds(0, 0, 100, 50);
+        jLabel8.setBounds(0, 0, 120, 30);
 
         SidePanel.add(home7);
-        home7.setBounds(10, 490, 100, 50);
+        home7.setBounds(0, 340, 120, 30);
 
+        home8.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         home8.setLayout(null);
 
-        jLabel9.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setText("Admin");
-        jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
+        jLabel22.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel22.setText("Settings");
+        jLabel22.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel9MouseClicked(evt);
+                jLabel22MouseClicked(evt);
             }
         });
-        home8.add(jLabel9);
-        jLabel9.setBounds(0, 0, 100, 50);
+        home8.add(jLabel22);
+        jLabel22.setBounds(0, 0, 120, 30);
 
         SidePanel.add(home8);
-        home8.setBounds(10, 550, 100, 50);
+        home8.setBounds(0, 460, 120, 30);
+        home8.getAccessibleContext().setAccessibleName("");
 
         home9.setLayout(null);
 
@@ -482,10 +514,10 @@ public class Home extends javax.swing.JFrame {
             }
         });
         home9.add(jLabel10);
-        jLabel10.setBounds(0, 0, 100, 50);
+        jLabel10.setBounds(0, 0, 120, 40);
 
         SidePanel.add(home9);
-        home9.setBounds(10, 610, 100, 50);
+        home9.setBounds(0, 550, 120, 40);
 
         jPanel2.setBackground(new java.awt.Color(0, 51, 102));
         jPanel2.setLayout(null);
@@ -503,6 +535,59 @@ public class Home extends javax.swing.JFrame {
         SidePanel.add(jPanel2);
         jPanel2.setBounds(0, 0, 120, 60);
 
+        jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.setLayout(null);
+
+        jLabel15.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel15.setText("Bank");
+        jPanel1.add(jLabel15);
+        jLabel15.setBounds(0, 9, 120, 20);
+
+        SidePanel.add(jPanel1);
+        jPanel1.setBounds(0, 370, 120, 30);
+
+        jPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel3.setLayout(null);
+
+        jLabel19.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel19.setText("Cash");
+        jPanel3.add(jLabel19);
+        jLabel19.setBounds(0, 7, 120, 20);
+
+        SidePanel.add(jPanel3);
+        jPanel3.setBounds(0, 400, 120, 30);
+
+        jPanel15.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel15.setLayout(null);
+
+        jLabel17.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel17.setText("Assets");
+        jPanel15.add(jLabel17);
+        jLabel17.setBounds(0, 0, 120, 30);
+
+        SidePanel.add(jPanel15);
+        jPanel15.setBounds(0, 430, 120, 30);
+
+        jPanel16.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel16.setLayout(null);
+
+        jLabel25.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel25.setText("Admin");
+        jLabel25.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel25MouseClicked(evt);
+            }
+        });
+        jPanel16.add(jLabel25);
+        jLabel25.setBounds(0, 0, 120, 30);
+
+        SidePanel.add(jPanel16);
+        jPanel16.setBounds(0, 490, 120, 30);
+
         mainPanel.add(SidePanel);
         SidePanel.setBounds(0, 0, 120, 768);
 
@@ -517,6 +602,9 @@ public class Home extends javax.swing.JFrame {
         });
         homePanel.setLayout(null);
 
+        jTable1.setAutoCreateRowSorter(true);
+        jTable1.setBackground(new java.awt.Color(23, 104, 172));
+        jTable1.setForeground(new java.awt.Color(255, 255, 255));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
@@ -532,11 +620,19 @@ public class Home extends javax.swing.JFrame {
                 "Name", "Amount"
             }
         ));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         homePanel.add(jScrollPane1);
         jScrollPane1.setBounds(10, 270, 370, 210);
 
+        jTable2.setAutoCreateRowSorter(true);
+        jTable2.setBackground(new java.awt.Color(23, 104, 172));
+        jTable2.setForeground(new java.awt.Color(255, 255, 255));
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
@@ -566,6 +662,9 @@ public class Home extends javax.swing.JFrame {
         homePanel.add(jLabel18);
         jLabel18.setBounds(470, 220, 240, 40);
 
+        jTable3.setAutoCreateRowSorter(true);
+        jTable3.setBackground(new java.awt.Color(23, 104, 172));
+        jTable3.setForeground(new java.awt.Color(255, 255, 255));
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
@@ -604,33 +703,35 @@ public class Home extends javax.swing.JFrame {
         homePanel.add(jLabel21);
         jLabel21.setBounds(50, 220, 240, 40);
 
+        jPanel6.setBackground(new java.awt.Color(23, 104, 172));
         jPanel6.setLayout(null);
 
         jLabel29.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel29.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel29.setForeground(new java.awt.Color(255, 255, 255));
         jLabel29.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel29.setText("Bank");
         jLabel29.setAlignmentX(931.0F);
         jLabel29.setAlignmentY(64.0F);
         jPanel6.add(jLabel29);
-        jLabel29.setBounds(10, 0, 240, 40);
+        jLabel29.setBounds(0, 0, 270, 40);
 
         jLabel30.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel30.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel30.setForeground(new java.awt.Color(255, 255, 255));
         jLabel30.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel30.setText("3002");
         jLabel30.setAlignmentX(931.0F);
         jLabel30.setAlignmentY(64.0F);
         jPanel6.add(jLabel30);
-        jLabel30.setBounds(10, 40, 240, 40);
+        jLabel30.setBounds(0, 40, 270, 40);
 
         homePanel.add(jPanel6);
         jPanel6.setBounds(290, 10, 270, 90);
 
+        jPanel5.setBackground(new java.awt.Color(23, 104, 172));
         jPanel5.setLayout(null);
 
         jLabel23.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel23.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel23.setForeground(new java.awt.Color(255, 255, 255));
         jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel23.setText("Expenses this week");
         jLabel23.setAlignmentX(931.0F);
@@ -639,44 +740,46 @@ public class Home extends javax.swing.JFrame {
         jLabel23.setBounds(10, 0, 240, 40);
 
         jLabel26.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel26.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel26.setForeground(new java.awt.Color(255, 255, 255));
         jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel26.setText("3002");
         jLabel26.setAlignmentX(931.0F);
         jLabel26.setAlignmentY(64.0F);
         jPanel5.add(jLabel26);
-        jLabel26.setBounds(10, 40, 240, 40);
+        jLabel26.setBounds(0, 40, 270, 40);
 
         homePanel.add(jPanel5);
         jPanel5.setBounds(10, 110, 270, 90);
 
+        jPanel4.setBackground(new java.awt.Color(23, 104, 172));
         jPanel4.setLayout(null);
 
         jLabel27.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel27.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel27.setForeground(new java.awt.Color(255, 255, 255));
         jLabel27.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel27.setText("Income-this week");
         jLabel27.setAlignmentX(931.0F);
         jLabel27.setAlignmentY(64.0F);
         jPanel4.add(jLabel27);
-        jLabel27.setBounds(10, 0, 240, 40);
+        jLabel27.setBounds(0, 0, 270, 50);
 
         jLabel28.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel28.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel28.setForeground(new java.awt.Color(255, 255, 255));
         jLabel28.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel28.setText("3002");
         jLabel28.setAlignmentX(931.0F);
         jLabel28.setAlignmentY(64.0F);
         jPanel4.add(jLabel28);
-        jLabel28.setBounds(10, 30, 240, 40);
+        jLabel28.setBounds(0, 40, 270, 40);
 
         homePanel.add(jPanel4);
         jPanel4.setBounds(10, 10, 270, 90);
 
+        jPanel7.setBackground(new java.awt.Color(23, 104, 172));
         jPanel7.setLayout(null);
 
         jLabel31.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel31.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel31.setForeground(new java.awt.Color(255, 255, 255));
         jLabel31.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel31.setText("Khadim");
         jLabel31.setAlignmentX(931.0F);
@@ -685,7 +788,7 @@ public class Home extends javax.swing.JFrame {
         jLabel31.setBounds(220, 0, 120, 40);
 
         jLabel32.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel32.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel32.setForeground(new java.awt.Color(255, 255, 255));
         jLabel32.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel32.setText("10");
         jLabel32.setAlignmentX(931.0F);
@@ -694,7 +797,7 @@ public class Home extends javax.swing.JFrame {
         jLabel32.setBounds(240, 40, 90, 40);
 
         jLabel39.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel39.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel39.setForeground(new java.awt.Color(255, 255, 255));
         jLabel39.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel39.setText("Imam");
         jLabel39.setAlignmentX(931.0F);
@@ -703,7 +806,7 @@ public class Home extends javax.swing.JFrame {
         jLabel39.setBounds(0, 0, 80, 40);
 
         jLabel40.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel40.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel40.setForeground(new java.awt.Color(255, 255, 255));
         jLabel40.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel40.setText("Muwajjin");
         jLabel40.setAlignmentX(931.0F);
@@ -712,7 +815,7 @@ public class Home extends javax.swing.JFrame {
         jLabel40.setBounds(90, 0, 120, 40);
 
         jLabel41.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel41.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel41.setForeground(new java.awt.Color(255, 255, 255));
         jLabel41.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel41.setText("3");
         jLabel41.setAlignmentX(931.0F);
@@ -721,7 +824,7 @@ public class Home extends javax.swing.JFrame {
         jLabel41.setBounds(10, 40, 90, 40);
 
         jLabel42.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel42.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel42.setForeground(new java.awt.Color(255, 255, 255));
         jLabel42.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel42.setText("5");
         jLabel42.setAlignmentX(931.0F);
@@ -732,10 +835,11 @@ public class Home extends javax.swing.JFrame {
         homePanel.add(jPanel7);
         jPanel7.setBounds(850, 10, 350, 190);
 
+        jPanel8.setBackground(new java.awt.Color(23, 104, 172));
         jPanel8.setLayout(null);
 
         jLabel33.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel33.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel33.setForeground(new java.awt.Color(255, 255, 255));
         jLabel33.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel33.setText("Cash");
         jLabel33.setAlignmentX(931.0F);
@@ -744,36 +848,37 @@ public class Home extends javax.swing.JFrame {
         jLabel33.setBounds(10, 0, 240, 40);
 
         jLabel34.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel34.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel34.setForeground(new java.awt.Color(255, 255, 255));
         jLabel34.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel34.setText("3002");
         jLabel34.setAlignmentX(931.0F);
         jLabel34.setAlignmentY(64.0F);
         jPanel8.add(jLabel34);
-        jLabel34.setBounds(10, 30, 240, 40);
+        jLabel34.setBounds(0, 40, 270, 40);
 
         homePanel.add(jPanel8);
         jPanel8.setBounds(290, 110, 270, 90);
 
+        jPanel9.setBackground(new java.awt.Color(23, 104, 172));
         jPanel9.setLayout(null);
 
         jLabel35.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel35.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel35.setForeground(new java.awt.Color(255, 255, 255));
         jLabel35.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel35.setText("Total Members");
         jLabel35.setAlignmentX(931.0F);
         jLabel35.setAlignmentY(64.0F);
         jPanel9.add(jLabel35);
-        jLabel35.setBounds(10, 0, 240, 40);
+        jLabel35.setBounds(10, 0, 260, 40);
 
         jLabel36.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel36.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel36.setForeground(new java.awt.Color(255, 255, 255));
         jLabel36.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel36.setText("3002");
         jLabel36.setAlignmentX(931.0F);
         jLabel36.setAlignmentY(64.0F);
         jPanel9.add(jLabel36);
-        jLabel36.setBounds(10, 40, 240, 40);
+        jLabel36.setBounds(0, 40, 270, 40);
 
         homePanel.add(jPanel9);
         jPanel9.setBounds(570, 10, 270, 90);
@@ -792,10 +897,11 @@ public class Home extends javax.swing.JFrame {
         homePanel.add(jPanel10);
         jPanel10.setBounds(810, 480, 370, 60);
 
+        jPanel11.setBackground(new java.awt.Color(23, 104, 172));
         jPanel11.setLayout(null);
 
         jLabel43.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel43.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel43.setForeground(new java.awt.Color(255, 255, 255));
         jLabel43.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel43.setText("Assets");
         jLabel43.setAlignmentX(931.0F);
@@ -804,13 +910,13 @@ public class Home extends javax.swing.JFrame {
         jLabel43.setBounds(10, 0, 240, 40);
 
         jLabel44.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel44.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel44.setForeground(new java.awt.Color(255, 255, 255));
         jLabel44.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel44.setText("3002");
         jLabel44.setAlignmentX(931.0F);
         jLabel44.setAlignmentY(64.0F);
         jPanel11.add(jLabel44);
-        jLabel44.setBounds(10, 40, 240, 40);
+        jLabel44.setBounds(0, 40, 270, 40);
 
         homePanel.add(jPanel11);
         jPanel11.setBounds(570, 110, 270, 90);
@@ -921,15 +1027,6 @@ public class Home extends javax.swing.JFrame {
         jButton6.setBounds(760, 20, 110, 40);
 
         Container.add(memberPanel, "card2");
-
-        accountsPanel.setBackground(new java.awt.Color(255, 255, 255));
-        accountsPanel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                accountsPanelMouseReleased(evt);
-            }
-        });
-        accountsPanel.setLayout(null);
-        Container.add(accountsPanel, "card2");
 
         collectionPanel.setBackground(new java.awt.Color(255, 255, 255));
         collectionPanel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1336,6 +1433,8 @@ public class Home extends javax.swing.JFrame {
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
         // actionform
+        select=2;
+        new ActionPanel().setVisible(true);
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
@@ -1345,10 +1444,6 @@ public class Home extends javax.swing.JFrame {
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton10ActionPerformed
-
-    private void accountsPanelMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_accountsPanelMouseReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_accountsPanelMouseReleased
 
     private void memberPanelMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_memberPanelMouseReleased
         // TODO add your handling code here:
@@ -1379,26 +1474,11 @@ public class Home extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel11ComponentRemoved
 
-    private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
-        // TODO add your handling code here:
-        jLabel57.setText("ADMIN");
-        homePanel.setVisible(false);
-        memberPanel.setVisible(false);
-        accountsPanel.setVisible(false);
-        collectionPanel.setVisible(false);
-        donationPanel.setVisible(false);
-        expensesPanel.setVisible(false);
-        salaryPanel.setVisible(false);
-        comitteePanel.setVisible(false);
-        adminPanel.setVisible(true);
-    }//GEN-LAST:event_jLabel9MouseClicked
-
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
         // TODO add your handling code here:
         jLabel57.setText("COMITTEE");
         homePanel.setVisible(false);
         memberPanel.setVisible(false);
-        accountsPanel.setVisible(false);
         collectionPanel.setVisible(false);
         donationPanel.setVisible(false);
         expensesPanel.setVisible(false);
@@ -1413,7 +1493,6 @@ public class Home extends javax.swing.JFrame {
         jLabel57.setText("SALARIES");
         homePanel.setVisible(false);
         memberPanel.setVisible(false);
-        accountsPanel.setVisible(false);
         collectionPanel.setVisible(false);
         donationPanel.setVisible(false);
         expensesPanel.setVisible(false);
@@ -1428,7 +1507,6 @@ public class Home extends javax.swing.JFrame {
         jLabel57.setText("DONATIONS");
         homePanel.setVisible(false);
         memberPanel.setVisible(false);
-        accountsPanel.setVisible(false);
         collectionPanel.setVisible(false);
         donationPanel.setVisible(true);
         expensesPanel.setVisible(false);
@@ -1443,7 +1521,6 @@ public class Home extends javax.swing.JFrame {
         jLabel57.setText("EXPENSES");
         homePanel.setVisible(false);
         memberPanel.setVisible(false);
-        accountsPanel.setVisible(false);
         collectionPanel.setVisible(false);
         donationPanel.setVisible(false);
         expensesPanel.setVisible(true);
@@ -1458,7 +1535,6 @@ public class Home extends javax.swing.JFrame {
         jLabel57.setText("COLLECTIONS");
         homePanel.setVisible(false);
         memberPanel.setVisible(false);
-        accountsPanel.setVisible(false);
         collectionPanel.setVisible(true);
         donationPanel.setVisible(false);
         expensesPanel.setVisible(false);
@@ -1473,7 +1549,6 @@ public class Home extends javax.swing.JFrame {
         jLabel57.setText("MEMBERS");
         memberPanel.setVisible(true);
         homePanel.setVisible(false);
-        accountsPanel.setVisible(false);
         collectionPanel.setVisible(false);
         donationPanel.setVisible(false);
         expensesPanel.setVisible(false);
@@ -1488,7 +1563,6 @@ public class Home extends javax.swing.JFrame {
         jLabel57.setText("HOME");
         homePanel.setVisible(true);
         memberPanel.setVisible(false);
-        accountsPanel.setVisible(false);
         collectionPanel.setVisible(false);
         donationPanel.setVisible(false);
         expensesPanel.setVisible(false);
@@ -1506,7 +1580,6 @@ public class Home extends javax.swing.JFrame {
         jLabel57.setText("ACCOUNTS");
         homePanel.setVisible(false);
         memberPanel.setVisible(false);
-        accountsPanel.setVisible(true);
         collectionPanel.setVisible(false);
         donationPanel.setVisible(false);
         expensesPanel.setVisible(false);
@@ -1563,16 +1636,35 @@ public class Home extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton29ActionPerformed
 
-    private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
-        //Log Out:
-        this.dispose();
-    }//GEN-LAST:event_jLabel10MouseClicked
-
     private void jLabel16MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseEntered
         // TODO add your handling code here:
          home1.setBackground(new Color(80, 166, 178));
          jLabel16.setForeground(Color.WHITE);
     }//GEN-LAST:event_jLabel16MouseEntered
+
+    private void jLabel16MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseExited
+        // TODO add your handling code here:
+        home1.setBackground(Color.white);
+        jLabel16.setForeground(Color.black);
+    }//GEN-LAST:event_jLabel16MouseExited
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        // TODO add your handling code here:
+       jTable1.setSelectionBackground(Color.pink);
+    }//GEN-LAST:event_jTable1MouseClicked
+
+    private void jLabel22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel22MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel22MouseClicked
+
+    private void jLabel25MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel25MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel25MouseClicked
+
+    private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
+        //Log Out:
+        this.dispose();
+    }//GEN-LAST:event_jLabel10MouseClicked
 
     /**
      * @param args the command line arguments
@@ -1612,7 +1704,6 @@ public class Home extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLayeredPane Container;
     private javax.swing.JPanel SidePanel;
-    private javax.swing.JPanel accountsPanel;
     private javax.swing.JPanel adminPanel;
     private javax.swing.JPanel collectionPanel;
     private javax.swing.JPanel comitteePanel;
@@ -1669,14 +1760,19 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
+    private static javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
@@ -1689,8 +1785,6 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
-    private javax.swing.JLabel jLabel37;
-    private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
@@ -1701,20 +1795,24 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;
+    private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel57;
     private javax.swing.JLabel jLabel58;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
+    private javax.swing.JPanel jPanel15;
+    private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
@@ -1743,6 +1841,8 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
+    private static javax.swing.JLabel lbUser;
+    private javax.swing.JLabel lbWelcome;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JPanel memberPanel;
     private javax.swing.JMenu menu1;
