@@ -7,6 +7,7 @@ package main;
 
 import java.awt.Color;
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.border.BevelBorder;
 
 /**
@@ -18,8 +19,11 @@ public class LogIn extends javax.swing.JFrame {
     /**
      * Creates new form LogIn
      */
+     private ImageIcon icon;
     public LogIn() {
         initComponents();
+        icon=new ImageIcon(getClass().getResource("../images/logo.png"));
+        this.setIconImage(icon.getImage());
     }
     
 
@@ -33,9 +37,6 @@ public class LogIn extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         txtUser = new javax.swing.JTextField();
@@ -44,40 +45,20 @@ public class LogIn extends javax.swing.JFrame {
         logIn = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
         cancel = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
-        getContentPane().setLayout(null);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.setLayout(null);
-
-        jLabel7.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(233, 234, 236));
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("Developed by: Mahmudul Hasan Shafin");
-        jPanel1.add(jLabel7);
-        jLabel7.setBounds(0, 480, 430, 30);
-
-        jLabel3.setFont(new java.awt.Font("Love", 1, 36)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(233, 234, 236));
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Mosque Management System");
-        jPanel1.add(jLabel3);
-        jLabel3.setBounds(0, 10, 430, 40);
-
-        jLabel1.setBackground(new java.awt.Color(255, 0, 102));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/dark-landscape-with-bird-flying-1.png"))); // NOI18N
-        jPanel1.add(jLabel1);
-        jLabel1.setBounds(0, 0, 430, 510);
-
-        getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 430, 510);
+        jPanel1.setLayout(new java.awt.BorderLayout());
+        getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
         jPanel2.setBackground(new java.awt.Color(51, 54, 82));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -88,7 +69,7 @@ public class LogIn extends javax.swing.JFrame {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/asset-1.png"))); // NOI18N
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 20, 490, 60));
 
-        txtUser.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        txtUser.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
         txtUser.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         txtUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -148,6 +129,13 @@ public class LogIn extends javax.swing.JFrame {
         });
         jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 460, 120, 30));
 
+        jLabel7.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(233, 234, 236));
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("Developed by: Mahmudul Hasan Shafin");
+        jLabel7.setPreferredSize(new java.awt.Dimension(50, 50));
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 460, 430, -1));
+
         cancel.setBackground(new java.awt.Color(250, 208, 44));
         cancel.setLayout(new java.awt.CardLayout());
 
@@ -182,8 +170,18 @@ public class LogIn extends javax.swing.JFrame {
         jLabel11.setText("User name");
         jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 170, 110, 40));
 
-        getContentPane().add(jPanel2);
-        jPanel2.setBounds(0, 0, 920, 510);
+        jLabel3.setFont(new java.awt.Font("Love", 1, 36)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(233, 234, 236));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("Mosque Management System");
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 430, 40));
+
+        jLabel1.setBackground(new java.awt.Color(255, 0, 102));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/dark-landscape-with-bird-flying-1.png"))); // NOI18N
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 430, 510));
+
+        getContentPane().add(jPanel2, java.awt.BorderLayout.PAGE_START);
 
         setSize(new java.awt.Dimension(922, 513));
         setLocationRelativeTo(null);

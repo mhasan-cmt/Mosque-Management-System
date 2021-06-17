@@ -6,6 +6,9 @@
 package main;
 
 import java.text.SimpleDateFormat;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.UIManager;
 
 /**
  *
@@ -18,18 +21,48 @@ public class ActionPanel extends javax.swing.JFrame {
      */
     public ActionPanel() {
         initComponents();
+        formSelect();
+        this.setResizable(false);
+    }
+    //FORM Selection 
+    void formSelect(){
         if(Home.select==1){
             Members.setVisible(true);
             Collection.setVisible(false);
+            Donations.setVisible(false);
+            Expenses.setVisible(false);
+            Employee.setVisible(false);
             comSelector.setText("Members");
         }else if(Home.select==2){
             Members.setVisible(false);
+            Donations.setVisible(false);
+            Expenses.setVisible(false);
             Collection.setVisible(true);
+            Employee.setVisible(false);
             comSelector.setText("Collections");
+        }else if(Home.select==3){
+            Members.setVisible(false);
+            Donations.setVisible(true);
+            Expenses.setVisible(false);
+            Collection.setVisible(true);
+            Employee.setVisible(false);
+            comSelector.setText("Donations");
+        }else if(Home.select==4){
+            Members.setVisible(false);
+            Donations.setVisible(false);
+            Expenses.setVisible(true);
+            Collection.setVisible(true);
+            Employee.setVisible(false);
+            comSelector.setText("Expenses");
+        }else if(Home.select==5){
+            Members.setVisible(false);
+            Donations.setVisible(false);
+            Expenses.setVisible(false);
+            Collection.setVisible(true);
+            Employee.setVisible(true);
+            comSelector.setText("Responsibilities");
         }
     }
-   
-    String check=null;
     SimpleDateFormat sm = new SimpleDateFormat("yyyy-MM-dd");//Formatting date for sql
     //Members Section
     String mid,mname,mmobile,maddress,mdate,mtype,mfee;
@@ -61,6 +94,7 @@ public class ActionPanel extends javax.swing.JFrame {
         jButton30 = new javax.swing.JButton();
         jComboBox7 = new javax.swing.JComboBox<>();
         comSelector = new javax.swing.JLabel();
+        jButton53 = new javax.swing.JButton();
         container = new javax.swing.JLayeredPane();
         Collection = new javax.swing.JPanel();
         memberName1 = new javax.swing.JTextField();
@@ -159,7 +193,6 @@ public class ActionPanel extends javax.swing.JFrame {
         jLabel74 = new javax.swing.JLabel();
         jButton51 = new javax.swing.JButton();
         jButton52 = new javax.swing.JButton();
-        jButton53 = new javax.swing.JButton();
         jLabel97 = new javax.swing.JLabel();
         memberMobile8 = new javax.swing.JTextField();
         memberMobile9 = new javax.swing.JTextField();
@@ -181,8 +214,13 @@ public class ActionPanel extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
-        topPanel.setBackground(new java.awt.Color(255, 255, 255));
+        topPanel.setBackground(new java.awt.Color(167, 187, 199));
         topPanel.setLayout(null);
 
         jButton29.setText("Close");
@@ -192,7 +230,7 @@ public class ActionPanel extends javax.swing.JFrame {
             }
         });
         topPanel.add(jButton29);
-        jButton29.setBounds(820, 0, 80, 40);
+        jButton29.setBounds(820, 0, 80, 30);
 
         jButton25.setText("FIRST");
         jButton25.addActionListener(new java.awt.event.ActionListener() {
@@ -201,15 +239,15 @@ public class ActionPanel extends javax.swing.JFrame {
             }
         });
         topPanel.add(jButton25);
-        jButton25.setBounds(450, 50, 70, 30);
+        jButton25.setBounds(470, 40, 70, 30);
 
         jButton24.setText("NEXT");
         topPanel.add(jButton24);
-        jButton24.setBounds(680, 50, 70, 30);
+        jButton24.setBounds(700, 40, 70, 30);
 
         jButton23.setText("PREVIOUS");
         topPanel.add(jButton23);
-        jButton23.setBounds(590, 50, 90, 30);
+        jButton23.setBounds(610, 40, 90, 30);
 
         jButton30.setText("LAST");
         jButton30.addActionListener(new java.awt.event.ActionListener() {
@@ -218,10 +256,10 @@ public class ActionPanel extends javax.swing.JFrame {
             }
         });
         topPanel.add(jButton30);
-        jButton30.setBounds(520, 50, 70, 30);
+        jButton30.setBounds(540, 40, 70, 30);
 
         topPanel.add(jComboBox7);
-        jComboBox7.setBounds(160, 50, 280, 30);
+        jComboBox7.setBounds(180, 40, 280, 30);
 
         comSelector.setFont(new java.awt.Font("Roboto Light", 1, 18)); // NOI18N
         comSelector.setForeground(new java.awt.Color(0, 0, 0));
@@ -230,20 +268,27 @@ public class ActionPanel extends javax.swing.JFrame {
         comSelector.setAlignmentX(931.0F);
         comSelector.setAlignmentY(64.0F);
         topPanel.add(comSelector);
-        comSelector.setBounds(0, 50, 150, 30);
+        comSelector.setBounds(20, 40, 150, 30);
+
+        jButton53.setText("Minimize");
+        jButton53.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton53ActionPerformed(evt);
+            }
+        });
+        topPanel.add(jButton53);
+        jButton53.setBounds(730, 0, 90, 30);
 
         container.setLayout(new java.awt.CardLayout());
 
         Collection.setBackground(new java.awt.Color(0, 51, 102));
-        Collection.setLayout(null);
+        Collection.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         memberName1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        Collection.add(memberName1);
-        memberName1.setBounds(260, 40, 640, 30);
+        Collection.add(memberName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 40, 640, 30));
 
         collectionId.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        Collection.add(collectionId);
-        collectionId.setBounds(70, 0, 130, 30);
+        Collection.add(collectionId, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, 130, 30));
 
         jLabel66.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel66.setForeground(new java.awt.Color(255, 255, 255));
@@ -251,8 +296,7 @@ public class ActionPanel extends javax.swing.JFrame {
         jLabel66.setText("Id:");
         jLabel66.setAlignmentX(931.0F);
         jLabel66.setAlignmentY(64.0F);
-        Collection.add(jLabel66);
-        jLabel66.setBounds(0, 0, 60, 30);
+        Collection.add(jLabel66, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 30));
 
         memberMobile1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         memberMobile1.addActionListener(new java.awt.event.ActionListener() {
@@ -260,8 +304,7 @@ public class ActionPanel extends javax.swing.JFrame {
                 memberMobile1ActionPerformed(evt);
             }
         });
-        Collection.add(memberMobile1);
-        memberMobile1.setBounds(260, 150, 290, 30);
+        Collection.add(memberMobile1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 150, 290, 30));
 
         jLabel67.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel67.setForeground(new java.awt.Color(255, 255, 255));
@@ -269,8 +312,7 @@ public class ActionPanel extends javax.swing.JFrame {
         jLabel67.setText("Amount:");
         jLabel67.setAlignmentX(931.0F);
         jLabel67.setAlignmentY(64.0F);
-        Collection.add(jLabel67);
-        jLabel67.setBounds(110, 150, 150, 30);
+        Collection.add(jLabel67, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 150, 150, 30));
 
         jLabel68.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel68.setForeground(new java.awt.Color(255, 255, 255));
@@ -278,8 +320,7 @@ public class ActionPanel extends javax.swing.JFrame {
         jLabel68.setText("Date:");
         jLabel68.setAlignmentX(931.0F);
         jLabel68.setAlignmentY(64.0F);
-        Collection.add(jLabel68);
-        jLabel68.setBounds(110, 190, 150, 30);
+        Collection.add(jLabel68, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 190, 150, 30));
 
         jLabel70.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel70.setForeground(new java.awt.Color(255, 255, 255));
@@ -287,8 +328,7 @@ public class ActionPanel extends javax.swing.JFrame {
         jLabel70.setText("Type:");
         jLabel70.setAlignmentX(931.0F);
         jLabel70.setAlignmentY(64.0F);
-        Collection.add(jLabel70);
-        jLabel70.setBounds(120, 110, 140, 30);
+        Collection.add(jLabel70, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 110, 140, 30));
 
         jLabel71.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel71.setForeground(new java.awt.Color(255, 255, 255));
@@ -296,8 +336,7 @@ public class ActionPanel extends javax.swing.JFrame {
         jLabel71.setText("Collected by:");
         jLabel71.setAlignmentX(931.0F);
         jLabel71.setAlignmentY(64.0F);
-        Collection.add(jLabel71);
-        jLabel71.setBounds(560, 150, 340, 40);
+        Collection.add(jLabel71, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 150, 340, 40));
 
         jButton34.setText("ADD");
         jButton34.addActionListener(new java.awt.event.ActionListener() {
@@ -305,8 +344,7 @@ public class ActionPanel extends javax.swing.JFrame {
                 jButton34ActionPerformed(evt);
             }
         });
-        Collection.add(jButton34);
-        jButton34.setBounds(620, 250, 70, 30);
+        Collection.add(jButton34, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 240, 70, 30));
 
         jButton35.setText("EDIT");
         jButton35.addActionListener(new java.awt.event.ActionListener() {
@@ -314,8 +352,7 @@ public class ActionPanel extends javax.swing.JFrame {
                 jButton35ActionPerformed(evt);
             }
         });
-        Collection.add(jButton35);
-        jButton35.setBounds(700, 250, 80, 30);
+        Collection.add(jButton35, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 240, 80, 30));
 
         jButton36.setText("DELETE");
         jButton36.addActionListener(new java.awt.event.ActionListener() {
@@ -323,14 +360,11 @@ public class ActionPanel extends javax.swing.JFrame {
                 jButton36ActionPerformed(evt);
             }
         });
-        Collection.add(jButton36);
-        jButton36.setBounds(790, 250, 80, 30);
+        Collection.add(jButton36, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 240, 80, 30));
 
         comMemberType1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Monthly", "Yearly" }));
-        Collection.add(comMemberType1);
-        comMemberType1.setBounds(260, 70, 640, 30);
-        Collection.add(memberDate1);
-        memberDate1.setBounds(260, 190, 290, 30);
+        Collection.add(comMemberType1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, 640, 30));
+        Collection.add(memberDate1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 190, 290, 30));
 
         jLabel72.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel72.setForeground(new java.awt.Color(255, 255, 255));
@@ -338,8 +372,7 @@ public class ActionPanel extends javax.swing.JFrame {
         jLabel72.setText("Member Name:");
         jLabel72.setAlignmentX(931.0F);
         jLabel72.setAlignmentY(64.0F);
-        Collection.add(jLabel72);
-        jLabel72.setBounds(110, 40, 150, 30);
+        Collection.add(jLabel72, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, 150, 30));
 
         comMemberType2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Monthly", "Yearly" }));
         comMemberType2.addActionListener(new java.awt.event.ActionListener() {
@@ -347,16 +380,13 @@ public class ActionPanel extends javax.swing.JFrame {
                 comMemberType2ActionPerformed(evt);
             }
         });
-        Collection.add(comMemberType2);
-        comMemberType2.setBounds(560, 190, 340, 30);
+        Collection.add(comMemberType2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 190, 340, 30));
 
         comMemberType3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Monthly", "Yearly" }));
-        Collection.add(comMemberType3);
-        comMemberType3.setBounds(260, 110, 290, 30);
+        Collection.add(comMemberType3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 110, 290, 30));
 
         comMemberType5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Monthly", "Yearly" }));
-        Collection.add(comMemberType5);
-        comMemberType5.setBounds(670, 110, 230, 30);
+        Collection.add(comMemberType5, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 110, 230, 30));
 
         jLabel82.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel82.setForeground(new java.awt.Color(255, 255, 255));
@@ -364,8 +394,7 @@ public class ActionPanel extends javax.swing.JFrame {
         jLabel82.setText("Payment :");
         jLabel82.setAlignmentX(931.0F);
         jLabel82.setAlignmentY(64.0F);
-        Collection.add(jLabel82);
-        jLabel82.setBounds(550, 110, 120, 30);
+        Collection.add(jLabel82, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 110, 120, 30));
 
         container.add(Collection, "card2");
 
@@ -524,15 +553,13 @@ public class ActionPanel extends javax.swing.JFrame {
         container.add(Members, "card2");
 
         Donations.setBackground(new java.awt.Color(0, 51, 102));
-        Donations.setLayout(null);
+        Donations.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         memberName2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        Donations.add(memberName2);
-        memberName2.setBounds(210, 40, 660, 30);
+        Donations.add(memberName2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 40, 660, 30));
 
         donationid.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        Donations.add(donationid);
-        donationid.setBounds(70, 0, 130, 30);
+        Donations.add(donationid, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, 130, 30));
 
         jLabel75.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel75.setForeground(new java.awt.Color(255, 255, 255));
@@ -540,8 +567,7 @@ public class ActionPanel extends javax.swing.JFrame {
         jLabel75.setText("Id:");
         jLabel75.setAlignmentX(931.0F);
         jLabel75.setAlignmentY(64.0F);
-        Donations.add(jLabel75);
-        jLabel75.setBounds(0, 0, 60, 30);
+        Donations.add(jLabel75, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 30));
 
         memberMobile2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         memberMobile2.addActionListener(new java.awt.event.ActionListener() {
@@ -549,8 +575,7 @@ public class ActionPanel extends javax.swing.JFrame {
                 memberMobile2ActionPerformed(evt);
             }
         });
-        Donations.add(memberMobile2);
-        memberMobile2.setBounds(210, 150, 370, 30);
+        Donations.add(memberMobile2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 150, 370, 30));
 
         jLabel76.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel76.setForeground(new java.awt.Color(255, 255, 255));
@@ -558,8 +583,7 @@ public class ActionPanel extends javax.swing.JFrame {
         jLabel76.setText("Mobile Number:");
         jLabel76.setAlignmentX(931.0F);
         jLabel76.setAlignmentY(64.0F);
-        Donations.add(jLabel76);
-        jLabel76.setBounds(60, 80, 150, 30);
+        Donations.add(jLabel76, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 150, 30));
 
         jLabel77.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel77.setForeground(new java.awt.Color(255, 255, 255));
@@ -567,8 +591,7 @@ public class ActionPanel extends javax.swing.JFrame {
         jLabel77.setText("Amount:");
         jLabel77.setAlignmentX(931.0F);
         jLabel77.setAlignmentY(64.0F);
-        Donations.add(jLabel77);
-        jLabel77.setBounds(70, 150, 140, 30);
+        Donations.add(jLabel77, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, 140, 30));
 
         jLabel79.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel79.setForeground(new java.awt.Color(255, 255, 255));
@@ -576,8 +599,7 @@ public class ActionPanel extends javax.swing.JFrame {
         jLabel79.setText("Payment Type:");
         jLabel79.setAlignmentX(931.0F);
         jLabel79.setAlignmentY(64.0F);
-        Donations.add(jLabel79);
-        jLabel79.setBounds(670, 150, 150, 30);
+        Donations.add(jLabel79, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 150, 150, 30));
 
         jLabel80.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel80.setForeground(new java.awt.Color(255, 255, 255));
@@ -585,8 +607,7 @@ public class ActionPanel extends javax.swing.JFrame {
         jLabel80.setText("Date:");
         jLabel80.setAlignmentX(931.0F);
         jLabel80.setAlignmentY(64.0F);
-        Donations.add(jLabel80);
-        jLabel80.setBounds(60, 190, 150, 30);
+        Donations.add(jLabel80, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, 150, 30));
 
         jButton39.setText("ADD");
         jButton39.addActionListener(new java.awt.event.ActionListener() {
@@ -594,8 +615,7 @@ public class ActionPanel extends javax.swing.JFrame {
                 jButton39ActionPerformed(evt);
             }
         });
-        Donations.add(jButton39);
-        jButton39.setBounds(620, 240, 70, 30);
+        Donations.add(jButton39, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 240, 70, 30));
 
         jButton41.setText("DELETE");
         jButton41.addActionListener(new java.awt.event.ActionListener() {
@@ -603,13 +623,11 @@ public class ActionPanel extends javax.swing.JFrame {
                 jButton41ActionPerformed(evt);
             }
         });
-        Donations.add(jButton41);
-        jButton41.setBounds(790, 240, 80, 30);
+        Donations.add(jButton41, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 240, 80, 30));
 
         comMemberType4.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         comMemberType4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Monthly", "Yearly" }));
-        Donations.add(comMemberType4);
-        comMemberType4.setBounds(590, 120, 310, 30);
+        Donations.add(comMemberType4, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 120, 310, 30));
 
         jLabel81.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel81.setForeground(new java.awt.Color(255, 255, 255));
@@ -617,8 +635,7 @@ public class ActionPanel extends javax.swing.JFrame {
         jLabel81.setText("Donor Name:");
         jLabel81.setAlignmentX(931.0F);
         jLabel81.setAlignmentY(64.0F);
-        Donations.add(jLabel81);
-        jLabel81.setBounds(60, 40, 150, 30);
+        Donations.add(jLabel81, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 150, 30));
 
         jButton42.setText("EDIT");
         jButton42.addActionListener(new java.awt.event.ActionListener() {
@@ -626,8 +643,7 @@ public class ActionPanel extends javax.swing.JFrame {
                 jButton42ActionPerformed(evt);
             }
         });
-        Donations.add(jButton42);
-        jButton42.setBounds(700, 240, 80, 30);
+        Donations.add(jButton42, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 240, 80, 30));
 
         memberMobile3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         memberMobile3.addActionListener(new java.awt.event.ActionListener() {
@@ -635,10 +651,8 @@ public class ActionPanel extends javax.swing.JFrame {
                 memberMobile3ActionPerformed(evt);
             }
         });
-        Donations.add(memberMobile3);
-        memberMobile3.setBounds(210, 80, 370, 30);
-        Donations.add(jDateChooser1);
-        jDateChooser1.setBounds(210, 190, 370, 30);
+        Donations.add(memberMobile3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, 370, 30));
+        Donations.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 190, 370, 30));
 
         jLabel83.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel83.setForeground(new java.awt.Color(255, 255, 255));
@@ -646,13 +660,11 @@ public class ActionPanel extends javax.swing.JFrame {
         jLabel83.setText("Collected by:");
         jLabel83.setAlignmentX(931.0F);
         jLabel83.setAlignmentY(64.0F);
-        Donations.add(jLabel83);
-        jLabel83.setBounds(660, 80, 140, 30);
+        Donations.add(jLabel83, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 80, 140, 30));
 
         comMemberType6.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         comMemberType6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Monthly", "Yearly" }));
-        Donations.add(comMemberType6);
-        comMemberType6.setBounds(590, 190, 310, 30);
+        Donations.add(comMemberType6, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 190, 310, 30));
 
         jLabel84.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel84.setForeground(new java.awt.Color(255, 255, 255));
@@ -660,8 +672,7 @@ public class ActionPanel extends javax.swing.JFrame {
         jLabel84.setText("Address:");
         jLabel84.setAlignmentX(931.0F);
         jLabel84.setAlignmentY(64.0F);
-        Donations.add(jLabel84);
-        jLabel84.setBounds(70, 120, 140, 30);
+        Donations.add(jLabel84, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, 140, 30));
 
         memberMobile4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         memberMobile4.addActionListener(new java.awt.event.ActionListener() {
@@ -669,8 +680,7 @@ public class ActionPanel extends javax.swing.JFrame {
                 memberMobile4ActionPerformed(evt);
             }
         });
-        Donations.add(memberMobile4);
-        memberMobile4.setBounds(210, 120, 370, 30);
+        Donations.add(memberMobile4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 120, 370, 30));
 
         container.add(Donations, "card2");
 
@@ -889,7 +899,7 @@ public class ActionPanel extends javax.swing.JFrame {
             }
         });
         Employee.add(jButton48);
-        jButton48.setBounds(620, 240, 70, 30);
+        jButton48.setBounds(590, 260, 70, 30);
 
         jButton49.setText("DELETE");
         jButton49.addActionListener(new java.awt.event.ActionListener() {
@@ -898,7 +908,7 @@ public class ActionPanel extends javax.swing.JFrame {
             }
         });
         Employee.add(jButton49);
-        jButton49.setBounds(790, 240, 80, 30);
+        jButton49.setBounds(760, 260, 80, 30);
 
         jButton50.setText("EDIT");
         jButton50.addActionListener(new java.awt.event.ActionListener() {
@@ -907,7 +917,7 @@ public class ActionPanel extends javax.swing.JFrame {
             }
         });
         Employee.add(jButton50);
-        jButton50.setBounds(700, 240, 80, 30);
+        jButton50.setBounds(670, 260, 80, 30);
 
         memberMobile7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         memberMobile7.addActionListener(new java.awt.event.ActionListener() {
@@ -946,7 +956,7 @@ public class ActionPanel extends javax.swing.JFrame {
             }
         });
         Employee.add(jButton51);
-        jButton51.setBounds(780, 120, 90, 30);
+        jButton51.setBounds(780, 80, 90, 30);
 
         jButton52.setText("Upload");
         jButton52.addActionListener(new java.awt.event.ActionListener() {
@@ -956,15 +966,6 @@ public class ActionPanel extends javax.swing.JFrame {
         });
         Employee.add(jButton52);
         jButton52.setBounds(780, 40, 90, 30);
-
-        jButton53.setText("View");
-        jButton53.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton53ActionPerformed(evt);
-            }
-        });
-        Employee.add(jButton53);
-        jButton53.setBounds(780, 80, 90, 30);
 
         jLabel97.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel97.setForeground(new java.awt.Color(255, 255, 255));
@@ -1000,20 +1001,17 @@ public class ActionPanel extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(container)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(topPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(topPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(topPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(topPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(container, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(container, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        setSize(new java.awt.Dimension(906, 402));
+        setSize(new java.awt.Dimension(899, 408));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -1161,10 +1159,6 @@ public class ActionPanel extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton52ActionPerformed
 
-    private void jButton53ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton53ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton53ActionPerformed
-
     private void memberMobile8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_memberMobile8ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_memberMobile8ActionPerformed
@@ -1172,6 +1166,15 @@ public class ActionPanel extends javax.swing.JFrame {
     private void memberMobile9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_memberMobile9ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_memberMobile9ActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formWindowOpened
+
+    private void jButton53ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton53ActionPerformed
+        // TODO add your handling code here:
+        setExtendedState(JFrame.ICONIFIED);
+    }//GEN-LAST:event_jButton53ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1184,7 +1187,7 @@ public class ActionPanel extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+              if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }

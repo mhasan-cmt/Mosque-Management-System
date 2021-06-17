@@ -22,16 +22,33 @@ public class Home extends javax.swing.JFrame {
     /**
      * Creates new form Home
      */
+    private ImageIcon icon;
    static  int select=1;
     public Home() {
         initComponents();
         SimpleDateFormat timeformat=new SimpleDateFormat("EEE, MMM d, ''yyyy");
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         jLabel13.setText(timeformat.format(Calendar.getInstance().getTime()));
-        hideNav();
-        new databaseConection().dbconnect();
+        initial();
+        icon=new ImageIcon(getClass().getResource("../images/logo.png"));
+        this.setIconImage(icon.getImage());
+        this.setTitle("Mosque Management System");
     }
     
+    //Initial 
+    void initial(){
+        hideNav();
+        jLabel57.setText("HOME");
+        homePanel.setVisible(true);
+        memberPanel.setVisible(false);
+        collectionPanel.setVisible(false);
+        donationPanel.setVisible(false);
+        expensesPanel.setVisible(false);
+        salary.setVisible(false);
+        comitteePanel.setVisible(false);
+        adminPanel.setVisible(false);
+    }
+        
     //UI Codes
     void hideNav(){
         jLabel58.setVisible(false);
@@ -41,7 +58,14 @@ public class Home extends javax.swing.JFrame {
         jButton25.setVisible(false);
         jButton29.setVisible(false);
     }
-        
+    void menuClicked(int click){
+        switch(click){
+            case 1 -> {
+                
+            }
+                
+        }
+    }
     void showNav(String title){
         jLabel58.setText(title);
         jLabel58.setVisible(true);
@@ -50,6 +74,15 @@ public class Home extends javax.swing.JFrame {
         jButton24.setVisible(true);
         jButton25.setVisible(true);
         jButton29.setVisible(true);
+    }
+    //SET IMAGE TO JLABEL
+    public void setImage(JLabel button, String resourcheimg){
+        ImageIcon aimg = new ImageIcon(getClass().getResource(resourcheimg));
+        button.setIcon(aimg);
+    }
+    //SET PANEL COLOR
+    public void changecolor(JPanel hover, Color rand){
+        hover.setBackground(rand);
     }
 
     /**
@@ -111,6 +144,10 @@ public class Home extends javax.swing.JFrame {
         jLabel19 = new javax.swing.JLabel();
         jPanel15 = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
+        jPanel18 = new javax.swing.JPanel();
+        jLabel37 = new javax.swing.JLabel();
+        jPanel17 = new javax.swing.JPanel();
+        jLabel38 = new javax.swing.JLabel();
         jPanel16 = new javax.swing.JPanel();
         jLabel25 = new javax.swing.JLabel();
         Container = new javax.swing.JLayeredPane();
@@ -195,7 +232,7 @@ public class Home extends javax.swing.JFrame {
         jButton21 = new javax.swing.JButton();
         jTextField5 = new javax.swing.JTextField();
         jComboBox5 = new javax.swing.JComboBox<>();
-        salaryPanel = new javax.swing.JPanel();
+        salary = new javax.swing.JPanel();
         jScrollPane8 = new javax.swing.JScrollPane();
         jTable8 = new javax.swing.JTable();
         jButton7 = new javax.swing.JButton();
@@ -225,16 +262,16 @@ public class Home extends javax.swing.JFrame {
         jPopupMenu1.add(menu2);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(null);
+        getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.LINE_AXIS));
 
         mainPanel.setLayout(null);
 
-        topPanel.setBackground(new java.awt.Color(255, 255, 255));
+        topPanel.setBackground(new java.awt.Color(167, 187, 199));
         topPanel.setLayout(null);
 
         jPanel14.setBackground(new java.awt.Color(51, 51, 51));
         topPanel.add(jPanel14);
-        jPanel14.setBounds(1140, 0, 100, 110);
+        jPanel14.setBounds(1140, 10, 100, 100);
 
         jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(0, 0, 0));
@@ -243,7 +280,7 @@ public class Home extends javax.swing.JFrame {
         jLabel14.setAlignmentX(931.0F);
         jLabel14.setAlignmentY(64.0F);
         topPanel.add(jLabel14);
-        jLabel14.setBounds(930, 70, 150, 30);
+        jLabel14.setBounds(930, 80, 150, 20);
 
         lbUser.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lbUser.setForeground(new java.awt.Color(0, 0, 0));
@@ -252,7 +289,7 @@ public class Home extends javax.swing.JFrame {
         lbUser.setAlignmentX(931.0F);
         lbUser.setAlignmentY(64.0F);
         topPanel.add(lbUser);
-        lbUser.setBounds(930, 40, 200, 30);
+        lbUser.setBounds(930, 50, 200, 20);
 
         lbWelcome.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lbWelcome.setForeground(new java.awt.Color(0, 0, 0));
@@ -261,7 +298,7 @@ public class Home extends javax.swing.JFrame {
         lbWelcome.setAlignmentX(931.0F);
         lbWelcome.setAlignmentY(64.0F);
         topPanel.add(lbWelcome);
-        lbWelcome.setBounds(920, 0, 100, 50);
+        lbWelcome.setBounds(920, 10, 100, 40);
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(0, 0, 0));
@@ -338,15 +375,24 @@ public class Home extends javax.swing.JFrame {
         SidePanel.setBackground(new java.awt.Color(0, 51, 102));
         SidePanel.setLayout(null);
 
+        home.setBackground(new java.awt.Color(10, 29, 55));
         home.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         home.setLayout(null);
 
+        jLabel1.setBackground(new java.awt.Color(253, 250, 246));
         jLabel1.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(253, 250, 246));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Report");
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel1MouseExited(evt);
             }
         });
         home.add(jLabel1);
@@ -355,10 +401,12 @@ public class Home extends javax.swing.JFrame {
         SidePanel.add(home);
         home.setBounds(0, 160, 120, 30);
 
-        home1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        home1.setBackground(new java.awt.Color(255, 255, 255));
         home1.setLayout(null);
 
+        jLabel16.setBackground(new java.awt.Color(255, 255, 255));
         jLabel16.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(0, 0, 0));
         jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel16.setText("Home");
         jLabel16.addContainerListener(new java.awt.event.ContainerAdapter() {
@@ -383,15 +431,24 @@ public class Home extends javax.swing.JFrame {
         SidePanel.add(home1);
         home1.setBounds(0, 130, 120, 30);
 
+        home2.setBackground(new java.awt.Color(10, 29, 55));
         home2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         home2.setLayout(null);
 
+        jLabel3.setBackground(new java.awt.Color(253, 250, 246));
         jLabel3.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(253, 250, 246));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Members");
         jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel3MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel3MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel3MouseExited(evt);
             }
         });
         home2.add(jLabel3);
@@ -400,15 +457,24 @@ public class Home extends javax.swing.JFrame {
         SidePanel.add(home2);
         home2.setBounds(0, 190, 120, 30);
 
+        home3.setBackground(new java.awt.Color(10, 29, 55));
         home3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         home3.setLayout(null);
 
+        jLabel4.setBackground(new java.awt.Color(253, 250, 246));
         jLabel4.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(253, 250, 246));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Collections");
         jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel4MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel4MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel4MouseExited(evt);
             }
         });
         home3.add(jLabel4);
@@ -417,15 +483,24 @@ public class Home extends javax.swing.JFrame {
         SidePanel.add(home3);
         home3.setBounds(0, 220, 120, 30);
 
+        home4.setBackground(new java.awt.Color(10, 29, 55));
         home4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         home4.setLayout(null);
 
+        jLabel5.setBackground(new java.awt.Color(253, 250, 246));
         jLabel5.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(253, 250, 246));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Expenses");
         jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel5MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel5MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel5MouseExited(evt);
             }
         });
         home4.add(jLabel5);
@@ -434,15 +509,24 @@ public class Home extends javax.swing.JFrame {
         SidePanel.add(home4);
         home4.setBounds(0, 280, 120, 30);
 
+        home5.setBackground(new java.awt.Color(10, 29, 55));
         home5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         home5.setLayout(null);
 
+        jLabel6.setBackground(new java.awt.Color(253, 250, 246));
         jLabel6.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(253, 250, 246));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Donations");
         jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel6MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel6MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel6MouseExited(evt);
             }
         });
         home5.add(jLabel6);
@@ -451,15 +535,24 @@ public class Home extends javax.swing.JFrame {
         SidePanel.add(home5);
         home5.setBounds(0, 250, 120, 30);
 
+        home6.setBackground(new java.awt.Color(10, 29, 55));
         home6.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         home6.setLayout(null);
 
+        jLabel7.setBackground(new java.awt.Color(253, 250, 246));
         jLabel7.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(253, 250, 246));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("Salary");
         jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel7MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel7MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel7MouseExited(evt);
             }
         });
         home6.add(jLabel7);
@@ -468,15 +561,24 @@ public class Home extends javax.swing.JFrame {
         SidePanel.add(home6);
         home6.setBounds(0, 310, 120, 30);
 
+        home7.setBackground(new java.awt.Color(10, 29, 55));
         home7.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         home7.setLayout(null);
 
+        jLabel8.setBackground(new java.awt.Color(253, 250, 246));
         jLabel8.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(253, 250, 246));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("Comittee");
         jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel8MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel8MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel8MouseExited(evt);
             }
         });
         home7.add(jLabel8);
@@ -485,15 +587,24 @@ public class Home extends javax.swing.JFrame {
         SidePanel.add(home7);
         home7.setBounds(0, 340, 120, 30);
 
+        home8.setBackground(new java.awt.Color(10, 29, 55));
         home8.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         home8.setLayout(null);
 
+        jLabel22.setBackground(new java.awt.Color(253, 250, 246));
         jLabel22.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(253, 250, 246));
         jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel22.setText("Settings");
         jLabel22.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel22MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel22MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel22MouseExited(evt);
             }
         });
         home8.add(jLabel22);
@@ -517,13 +628,13 @@ public class Home extends javax.swing.JFrame {
         jLabel10.setBounds(0, 0, 120, 40);
 
         SidePanel.add(home9);
-        home9.setBounds(0, 550, 120, 40);
+        home9.setBounds(0, 580, 120, 40);
 
         jPanel2.setBackground(new java.awt.Color(0, 51, 102));
         jPanel2.setLayout(null);
 
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/asset-1.png"))); // NOI18N
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logo.png"))); // NOI18N
         jLabel11.addContainerListener(new java.awt.event.ContainerAdapter() {
             public void componentRemoved(java.awt.event.ContainerEvent evt) {
                 jLabel11ComponentRemoved(evt);
@@ -535,51 +646,145 @@ public class Home extends javax.swing.JFrame {
         SidePanel.add(jPanel2);
         jPanel2.setBounds(0, 0, 120, 60);
 
+        jPanel1.setBackground(new java.awt.Color(10, 29, 55));
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.setLayout(null);
 
+        jLabel15.setBackground(new java.awt.Color(253, 250, 246));
         jLabel15.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(253, 250, 246));
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel15.setText("Bank");
+        jLabel15.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel15MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel15MouseExited(evt);
+            }
+        });
         jPanel1.add(jLabel15);
-        jLabel15.setBounds(0, 9, 120, 20);
+        jLabel15.setBounds(0, -1, 120, 30);
 
         SidePanel.add(jPanel1);
         jPanel1.setBounds(0, 370, 120, 30);
 
+        jPanel3.setBackground(new java.awt.Color(10, 29, 55));
         jPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel3.setLayout(null);
 
+        jLabel19.setBackground(new java.awt.Color(253, 250, 246));
         jLabel19.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(253, 250, 246));
         jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel19.setText("Cash");
+        jLabel19.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel19MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel19MouseExited(evt);
+            }
+        });
         jPanel3.add(jLabel19);
-        jLabel19.setBounds(0, 7, 120, 20);
+        jLabel19.setBounds(0, 0, 120, 30);
 
         SidePanel.add(jPanel3);
         jPanel3.setBounds(0, 400, 120, 30);
 
+        jPanel15.setBackground(new java.awt.Color(10, 29, 55));
         jPanel15.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel15.setLayout(null);
 
+        jLabel17.setBackground(new java.awt.Color(253, 250, 246));
         jLabel17.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(253, 250, 246));
         jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel17.setText("Assets");
+        jLabel17.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel17MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel17MouseExited(evt);
+            }
+        });
         jPanel15.add(jLabel17);
         jLabel17.setBounds(0, 0, 120, 30);
 
         SidePanel.add(jPanel15);
         jPanel15.setBounds(0, 430, 120, 30);
 
+        jPanel18.setBackground(new java.awt.Color(10, 29, 55));
+        jPanel18.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel18.setLayout(null);
+
+        jLabel37.setBackground(new java.awt.Color(253, 250, 246));
+        jLabel37.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        jLabel37.setForeground(new java.awt.Color(253, 250, 246));
+        jLabel37.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel37.setText("Help");
+        jLabel37.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel37MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel37MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel37MouseExited(evt);
+            }
+        });
+        jPanel18.add(jLabel37);
+        jLabel37.setBounds(0, 0, 120, 30);
+
+        SidePanel.add(jPanel18);
+        jPanel18.setBounds(0, 550, 120, 30);
+
+        jPanel17.setBackground(new java.awt.Color(10, 29, 55));
+        jPanel17.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel17.setLayout(null);
+
+        jLabel38.setBackground(new java.awt.Color(253, 250, 246));
+        jLabel38.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        jLabel38.setForeground(new java.awt.Color(253, 250, 246));
+        jLabel38.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel38.setText("About");
+        jLabel38.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel38MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel38MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel38MouseExited(evt);
+            }
+        });
+        jPanel17.add(jLabel38);
+        jLabel38.setBounds(0, 0, 120, 30);
+
+        SidePanel.add(jPanel17);
+        jPanel17.setBounds(0, 520, 120, 30);
+
+        jPanel16.setBackground(new java.awt.Color(10, 29, 55));
         jPanel16.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel16.setLayout(null);
 
+        jLabel25.setBackground(new java.awt.Color(253, 250, 246));
         jLabel25.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        jLabel25.setForeground(new java.awt.Color(253, 250, 246));
         jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel25.setText("Admin");
         jLabel25.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel25MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel25MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel25MouseExited(evt);
             }
         });
         jPanel16.add(jLabel25);
@@ -1259,13 +1464,13 @@ public class Home extends javax.swing.JFrame {
 
         Container.add(expensesPanel, "card2");
 
-        salaryPanel.setBackground(new java.awt.Color(255, 255, 255));
-        salaryPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+        salary.setBackground(new java.awt.Color(255, 255, 255));
+        salary.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                salaryPanelMouseReleased(evt);
+                salaryMouseReleased(evt);
             }
         });
-        salaryPanel.setLayout(null);
+        salary.setLayout(null);
 
         jTable8.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1280,7 +1485,7 @@ public class Home extends javax.swing.JFrame {
         ));
         jScrollPane8.setViewportView(jTable8);
 
-        salaryPanel.add(jScrollPane8);
+        salary.add(jScrollPane8);
         jScrollPane8.setBounds(10, 70, 1160, 480);
 
         jButton7.setText("EDIT");
@@ -1289,9 +1494,9 @@ public class Home extends javax.swing.JFrame {
                 jButton7ActionPerformed(evt);
             }
         });
-        salaryPanel.add(jButton7);
+        salary.add(jButton7);
         jButton7.setBounds(880, 20, 110, 40);
-        salaryPanel.add(jTextField2);
+        salary.add(jTextField2);
         jTextField2.setBounds(150, 20, 250, 40);
 
         jButton8.setText("FIND");
@@ -1300,7 +1505,7 @@ public class Home extends javax.swing.JFrame {
                 jButton8ActionPerformed(evt);
             }
         });
-        salaryPanel.add(jButton8);
+        salary.add(jButton8);
         jButton8.setBounds(400, 20, 110, 40);
 
         jButton9.setText("ADD NEW");
@@ -1309,7 +1514,7 @@ public class Home extends javax.swing.JFrame {
                 jButton9ActionPerformed(evt);
             }
         });
-        salaryPanel.add(jButton9);
+        salary.add(jButton9);
         jButton9.setBounds(520, 20, 110, 40);
 
         jButton27.setText("REFRESH");
@@ -1318,11 +1523,11 @@ public class Home extends javax.swing.JFrame {
                 jButton27ActionPerformed(evt);
             }
         });
-        salaryPanel.add(jButton27);
+        salary.add(jButton27);
         jButton27.setBounds(640, 20, 110, 40);
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "NAME", "ADDRESS" }));
-        salaryPanel.add(jComboBox2);
+        salary.add(jComboBox2);
         jComboBox2.setBounds(10, 20, 140, 40);
 
         jButton28.setText("DELETE");
@@ -1331,10 +1536,10 @@ public class Home extends javax.swing.JFrame {
                 jButton28ActionPerformed(evt);
             }
         });
-        salaryPanel.add(jButton28);
+        salary.add(jButton28);
         jButton28.setBounds(760, 20, 110, 40);
 
-        Container.add(salaryPanel, "card2");
+        Container.add(salary, "card2");
 
         comitteePanel.setBackground(new java.awt.Color(255, 255, 255));
         comitteePanel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1368,7 +1573,6 @@ public class Home extends javax.swing.JFrame {
         Container.setBounds(118, 118, 1250, 650);
 
         getContentPane().add(mainPanel);
-        mainPanel.setBounds(0, 0, 1366, 768);
 
         setSize(new java.awt.Dimension(1382, 807));
         setLocationRelativeTo(null);
@@ -1378,9 +1582,9 @@ public class Home extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_comitteePanelMouseReleased
 
-    private void salaryPanelMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_salaryPanelMouseReleased
+    private void salaryMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_salaryMouseReleased
         // TODO add your handling code here:
-    }//GEN-LAST:event_salaryPanelMouseReleased
+    }//GEN-LAST:event_salaryMouseReleased
 
     private void expensesPanelMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_expensesPanelMouseReleased
         // TODO add your handling code here:
@@ -1392,6 +1596,8 @@ public class Home extends javax.swing.JFrame {
 
     private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
         // TODO add your handling code here:
+        select=4;
+        new ActionPanel().setVisible(true);
     }//GEN-LAST:event_jButton20ActionPerformed
 
     private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
@@ -1412,6 +1618,8 @@ public class Home extends javax.swing.JFrame {
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
         // TODO add your handling code here:
+        select=3;
+        new ActionPanel().setVisible(true);
         
     }//GEN-LAST:event_jButton16ActionPerformed
 
@@ -1482,7 +1690,7 @@ public class Home extends javax.swing.JFrame {
         collectionPanel.setVisible(false);
         donationPanel.setVisible(false);
         expensesPanel.setVisible(false);
-        salaryPanel.setVisible(false);
+        salary.setVisible(false);
         comitteePanel.setVisible(true);
         adminPanel.setVisible(false);
     }//GEN-LAST:event_jLabel8MouseClicked
@@ -1496,7 +1704,7 @@ public class Home extends javax.swing.JFrame {
         collectionPanel.setVisible(false);
         donationPanel.setVisible(false);
         expensesPanel.setVisible(false);
-        salaryPanel.setVisible(true);
+        salary.setVisible(true);
         comitteePanel.setVisible(false);
         adminPanel.setVisible(false);
     }//GEN-LAST:event_jLabel7MouseClicked
@@ -1510,7 +1718,7 @@ public class Home extends javax.swing.JFrame {
         collectionPanel.setVisible(false);
         donationPanel.setVisible(true);
         expensesPanel.setVisible(false);
-        salaryPanel.setVisible(false);
+        salary.setVisible(false);
         comitteePanel.setVisible(false);
         adminPanel.setVisible(false);
     }//GEN-LAST:event_jLabel6MouseClicked
@@ -1524,7 +1732,7 @@ public class Home extends javax.swing.JFrame {
         collectionPanel.setVisible(false);
         donationPanel.setVisible(false);
         expensesPanel.setVisible(true);
-        salaryPanel.setVisible(false);
+        salary.setVisible(false);
         comitteePanel.setVisible(false);
         adminPanel.setVisible(false);
     }//GEN-LAST:event_jLabel5MouseClicked
@@ -1538,7 +1746,7 @@ public class Home extends javax.swing.JFrame {
         collectionPanel.setVisible(true);
         donationPanel.setVisible(false);
         expensesPanel.setVisible(false);
-        salaryPanel.setVisible(false);
+        salary.setVisible(false);
         comitteePanel.setVisible(false);
         adminPanel.setVisible(false);
     }//GEN-LAST:event_jLabel4MouseClicked
@@ -1552,7 +1760,7 @@ public class Home extends javax.swing.JFrame {
         collectionPanel.setVisible(false);
         donationPanel.setVisible(false);
         expensesPanel.setVisible(false);
-        salaryPanel.setVisible(false);
+        salary.setVisible(false);
         comitteePanel.setVisible(false);
         adminPanel.setVisible(false);
     }//GEN-LAST:event_jLabel3MouseClicked
@@ -1566,7 +1774,7 @@ public class Home extends javax.swing.JFrame {
         collectionPanel.setVisible(false);
         donationPanel.setVisible(false);
         expensesPanel.setVisible(false);
-        salaryPanel.setVisible(false);
+        salary.setVisible(false);
         comitteePanel.setVisible(false);
         adminPanel.setVisible(false);
     }//GEN-LAST:event_jLabel16MouseClicked
@@ -1583,7 +1791,7 @@ public class Home extends javax.swing.JFrame {
         collectionPanel.setVisible(false);
         donationPanel.setVisible(false);
         expensesPanel.setVisible(false);
-        salaryPanel.setVisible(false);
+        salary.setVisible(false);
         comitteePanel.setVisible(false);
         adminPanel.setVisible(false);
     }//GEN-LAST:event_jLabel1MouseClicked
@@ -1618,6 +1826,8 @@ public class Home extends javax.swing.JFrame {
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:
+        select=5;
+        new ActionPanel().setVisible(true);
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton27ActionPerformed
@@ -1665,6 +1875,154 @@ public class Home extends javax.swing.JFrame {
         //Log Out:
         this.dispose();
     }//GEN-LAST:event_jLabel10MouseClicked
+
+    private void jLabel37MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel37MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel37MouseClicked
+
+    private void jLabel38MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel38MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel38MouseClicked
+
+    private void jLabel1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseEntered
+        // TODO add your handling code here:
+        changecolor(home, new Color(80, 166, 178));
+    }//GEN-LAST:event_jLabel1MouseEntered
+
+    private void jLabel1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseExited
+        // TODO add your handling code here:
+        changecolor(home, new Color(10,29,55));
+    }//GEN-LAST:event_jLabel1MouseExited
+
+    private void jLabel3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseEntered
+        // TODO add your handling code here:
+        changecolor(home2, new Color(80, 166, 178));
+    }//GEN-LAST:event_jLabel3MouseEntered
+
+    private void jLabel3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseExited
+        // TODO add your handling code here:
+        changecolor(home2, new Color(10,29,55));
+    }//GEN-LAST:event_jLabel3MouseExited
+
+    private void jLabel4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseEntered
+        // TODO add your handling code here:
+        changecolor(home3, new Color(80, 166, 178));
+    }//GEN-LAST:event_jLabel4MouseEntered
+
+    private void jLabel4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseExited
+        // TODO add your handling code here:
+        changecolor(home3, new Color(10,29,55));
+    }//GEN-LAST:event_jLabel4MouseExited
+
+    private void jLabel6MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseEntered
+        // TODO add your handling code here:
+        changecolor(home5, new Color(80, 166, 178));
+    }//GEN-LAST:event_jLabel6MouseEntered
+
+    private void jLabel6MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseExited
+        // TODO add your handling code here:
+        changecolor(home5, new Color(10,29,55));
+    }//GEN-LAST:event_jLabel6MouseExited
+
+    private void jLabel5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseEntered
+        // TODO add your handling code here:
+        changecolor(home4, new Color(80, 166, 178));
+    }//GEN-LAST:event_jLabel5MouseEntered
+
+    private void jLabel5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseExited
+        // TODO add your handling code here:
+        changecolor(home4, new Color(10,29,55));
+    }//GEN-LAST:event_jLabel5MouseExited
+
+    private void jLabel7MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseEntered
+        // TODO add your handling code here:
+        changecolor(home6, new Color(80, 166, 178));
+    }//GEN-LAST:event_jLabel7MouseEntered
+
+    private void jLabel7MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseExited
+        // TODO add your handling code here:
+        changecolor(home6, new Color(10,29,55));
+    }//GEN-LAST:event_jLabel7MouseExited
+
+    private void jLabel8MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseEntered
+        // TODO add your handling code here:
+        changecolor(home7, new Color(80, 166, 178));
+    }//GEN-LAST:event_jLabel8MouseEntered
+
+    private void jLabel8MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseExited
+        // TODO add your handling code here:
+         changecolor(home7, new Color(10,29,55));
+    }//GEN-LAST:event_jLabel8MouseExited
+
+    private void jLabel15MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel15MouseEntered
+        // TODO add your handling code here:
+        changecolor(jPanel1, new Color(80, 166, 178));
+    }//GEN-LAST:event_jLabel15MouseEntered
+
+    private void jLabel15MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel15MouseExited
+        // TODO add your handling code here:
+        changecolor(jPanel1, new Color(10,29,55));
+    }//GEN-LAST:event_jLabel15MouseExited
+
+    private void jLabel19MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel19MouseEntered
+        // TODO add your handling code here:
+        changecolor(jPanel3, new Color(80, 166, 178));
+    }//GEN-LAST:event_jLabel19MouseEntered
+
+    private void jLabel19MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel19MouseExited
+        // TODO add your handling code here:
+        changecolor(jPanel3, new Color(10,29,55));
+    }//GEN-LAST:event_jLabel19MouseExited
+
+    private void jLabel17MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseEntered
+        // TODO add your handling code here:
+        changecolor(jPanel15, new Color(80, 166, 178));
+    }//GEN-LAST:event_jLabel17MouseEntered
+
+    private void jLabel17MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseExited
+        // TODO add your handling code here:
+        changecolor(jPanel15, new Color(10,29,55));
+    }//GEN-LAST:event_jLabel17MouseExited
+
+    private void jLabel22MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel22MouseEntered
+        // TODO add your handling code here:
+         changecolor(home8, new Color(80, 166, 178));
+    }//GEN-LAST:event_jLabel22MouseEntered
+
+    private void jLabel22MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel22MouseExited
+        // TODO add your handling code here:
+        changecolor(home8, new Color(10,29,55));
+    }//GEN-LAST:event_jLabel22MouseExited
+
+    private void jLabel25MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel25MouseEntered
+        // TODO add your handling code here:
+        changecolor(jPanel16, new Color(80, 166, 178));
+    }//GEN-LAST:event_jLabel25MouseEntered
+
+    private void jLabel25MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel25MouseExited
+        // TODO add your handling code here:
+        changecolor(jPanel16, new Color(10,29,55));
+    }//GEN-LAST:event_jLabel25MouseExited
+
+    private void jLabel38MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel38MouseEntered
+        // TODO add your handling code here:
+        changecolor(jPanel17, new Color(80, 166, 178));
+    }//GEN-LAST:event_jLabel38MouseEntered
+
+    private void jLabel38MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel38MouseExited
+        // TODO add your handling code here:
+        changecolor(jPanel17, new Color(10,29,55));
+    }//GEN-LAST:event_jLabel38MouseExited
+
+    private void jLabel37MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel37MouseEntered
+        // TODO add your handling code here:
+        changecolor(jPanel18, new Color(80, 166, 178));
+    }//GEN-LAST:event_jLabel37MouseEntered
+
+    private void jLabel37MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel37MouseExited
+        // TODO add your handling code here:
+        changecolor(jPanel18, new Color(10,29,55));
+    }//GEN-LAST:event_jLabel37MouseExited
 
     /**
      * @param args the command line arguments
@@ -1785,6 +2143,8 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
@@ -1811,6 +2171,8 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel16;
+    private javax.swing.JPanel jPanel17;
+    private javax.swing.JPanel jPanel18;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -1847,7 +2209,7 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JPanel memberPanel;
     private javax.swing.JMenu menu1;
     private javax.swing.JMenu menu2;
-    private javax.swing.JPanel salaryPanel;
+    private javax.swing.JPanel salary;
     private javax.swing.JMenuItem test3;
     private javax.swing.JPanel topPanel;
     // End of variables declaration//GEN-END:variables
